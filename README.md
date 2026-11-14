@@ -98,3 +98,11 @@ python scripts/export_project.py /writable/deliverables
 Exports include source ZIP, signed debug APK, instrumented-test APK, guides and
 checksums. They contain no signing keys, private recordings or trained safety
 encoder. Do not publish a debug APK as a production safety application.
+
+## Task 1 acoustic hardening
+
+The dedicated acoustic-only `RealtimeScreamMonitor` now provides bounded,
+thread-safe drop-newest ingestion and metadata-derived YAMNet framing, separate
+from the legacy ASR/fusion pipeline. See [scream-detector-report](docs/scream-detector-report.md)
+for fixed-config evaluation, provisional thresholds, reused-dataset restrictions,
+monitoring-only outputs and precise test scope. Android integration remains separate.

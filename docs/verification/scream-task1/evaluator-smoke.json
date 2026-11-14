@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "split": "test",
+  "benchmark_status": "independence_not_verified",
+  "config": {
+    "version": 1,
+    "source_rate": 16000,
+    "hop_samples": 8000,
+    "threshold": 0.3,
+    "confirmation_hits": 2,
+    "confirmation_windows": 3,
+    "cooldown_seconds": 10,
+    "block_seconds": 0.1,
+    "queue_capacity": 4,
+    "max_channels": 2,
+    "clip_input": false
+  },
+  "tail_policy": "drop_incomplete",
+  "event_tolerance_seconds": 1.0,
+  "selected_recordings": 1,
+  "evaluated_recordings": 1,
+  "unknown_clip_labels": 1,
+  "complete": true,
+  "errors": [],
+  "clip_metrics": {
+    "precision": null,
+    "recall": null,
+    "f1": null,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "confusion_matrix": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "event_metrics": {
+    "precision": null,
+    "recall": null,
+    "f1": null,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "annotated_recordings": 0,
+    "detection_delay_seconds": []
+  },
+  "false_alarms": {
+    "events": 0,
+    "negative_audio_hours": 0.0,
+    "analyzed_negative_audio_hours": 0.0,
+    "unscored_negative_seconds": 0.0,
+    "per_negative_audio_hour": null,
+    "per_analyzed_negative_hour": null
+  },
+  "false_negative_clips": [],
+  "clips": [
+    {
+      "duration_seconds": 1.5,
+      "source_rate": 48000,
+      "channels": 2,
+      "window_samples": 15600,
+      "window_seconds": 0.975,
+      "hop_samples": 8000,
+      "hop_seconds": 0.5,
+      "resampler_delay_seconds": 0.000625,
+      "windows": 2,
+      "padded_windows": 0,
+      "analyzed_audio_seconds": 1.475,
+      "unscored_audio_seconds": 0.02499999999999991,
+      "status": "analyzed",
+      "peak_screaming_score": 0.0,
+      "single_hit_detected": false,
+      "detected": false,
+      "events": [],
+      "inference_latency_seconds": {
+        "count": 2,
+        "mean": 0.002103426500070782,
+        "max": 0.0028305960004217923
+      },
+      "id": "synthetic-silence-smoke",
+      "source_id": "generated-zeros",
+      "group_id": "generated-zeros",
+      "label": null
+    }
+  ]
+}

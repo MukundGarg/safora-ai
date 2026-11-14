@@ -1,0 +1,75 @@
+test_all_pinned_models_are_bundled (test_android_packaging.AndroidPackagingTests.test_all_pinned_models_are_bundled) ... ok
+test_native_runtime_abi_consistency (test_android_packaging.AndroidPackagingTests.test_native_runtime_abi_consistency) ... ok
+test_no_recordings_or_synthetic_fixture_in_main_assets (test_android_packaging.AndroidPackagingTests.test_no_recordings_or_synthetic_fixture_in_main_assets) ... ok
+test_risk_classifier_is_explicitly_untrained (test_android_packaging.AndroidPackagingTests.test_risk_classifier_is_explicitly_untrained) ... ok
+test_silence_is_uncertain (test_model_integration.RealWhisperTests.test_silence_is_uncertain) ... ok
+test_real_model_silence_stream (test_model_integration.RealYamnetTests.test_real_model_silence_stream) ... INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+ok
+test_real_monitor_48khz_stereo_silence (test_model_integration.RealYamnetTests.test_real_monitor_48khz_stereo_silence) ... ok
+test_bounded_capture (test_pipeline.PipelineTests.test_bounded_capture) ... ok
+test_speech_runs_without_acoustic_alarm (test_pipeline.PipelineTests.test_speech_runs_without_acoustic_alarm) ... ok
+test_clip_event_delay_and_missing_labels (test_scream_evaluation.ScreamEvaluationTests.test_clip_event_delay_and_missing_labels) ... ok
+test_cooldown_resets_between_independent_clips (test_scream_evaluation.ScreamEvaluationTests.test_cooldown_resets_between_independent_clips) ... ok
+test_copied_path_cannot_appear_in_different_splits (test_scream_evaluation.ScreamEvaluationTests.test_copied_path_cannot_appear_in_different_splits) ... ok
+test_false_alarm_rate_counts_events_not_false_positive_files (test_scream_evaluation.ScreamEvaluationTests.test_false_alarm_rate_counts_events_not_false_positive_files) ... ok
+test_group_leakage_checked_before_filtering (test_scream_evaluation.ScreamEvaluationTests.test_group_leakage_checked_before_filtering) ... ok
+test_invalid_labels_annotations_and_missing_group_provenance (test_scream_evaluation.ScreamEvaluationTests.test_invalid_labels_annotations_and_missing_group_provenance) ... ok
+test_missing_recording_returns_explicit_incomplete_report (test_scream_evaluation.ScreamEvaluationTests.test_missing_recording_returns_explicit_incomplete_report) ... ok
+test_optional_pad_runs_one_window_not_repeated_confirmation (test_scream_evaluation.ScreamEvaluationTests.test_optional_pad_runs_one_window_not_repeated_confirmation) ... ok
+test_rate_conversion_uses_wav_header (test_scream_evaluation.ScreamEvaluationTests.test_rate_conversion_uses_wav_header) ... ok
+test_reused_external_is_labeled_and_cannot_be_calibrated (test_scream_evaluation.ScreamEvaluationTests.test_reused_external_is_labeled_and_cannot_be_calibrated) ... ok
+test_short_audio_is_unscored_and_not_silently_padded (test_scream_evaluation.ScreamEvaluationTests.test_short_audio_is_unscored_and_not_silently_padded) ... ok
+test_short_negative_exposure_does_not_claim_zero_false_alarms_per_hour (test_scream_evaluation.ScreamEvaluationTests.test_short_negative_exposure_does_not_claim_zero_false_alarms_per_hour) ... ok
+test_unknown_labels_do_not_create_negative_exposure (test_scream_evaluation.ScreamEvaluationTests.test_unknown_labels_do_not_create_negative_exposure) ... ok
+test_absolute_clock_after_gap (test_scream_stream.FramingTests.test_absolute_clock_after_gap) ... ok
+test_config_rejects_unbounded_queue_and_unknown_version (test_scream_stream.FramingTests.test_config_rejects_unbounded_queue_and_unknown_version) ... ok
+test_deterministic_decisions_and_threshold_equality (test_scream_stream.FramingTests.test_deterministic_decisions_and_threshold_equality) ... ok
+test_downsample_filter_rejects_above_nyquist_tone (test_scream_stream.FramingTests.test_downsample_filter_rejects_above_nyquist_tone) ... ok
+test_explicit_eof_padding_is_once_and_uses_real_end (test_scream_stream.FramingTests.test_explicit_eof_padding_is_once_and_uses_real_end) ... ok
+test_gap_forgets_votes_but_preserves_cooldown (test_scream_stream.FramingTests.test_gap_forgets_votes_but_preserves_cooldown) ... ok
+test_microphone_timestamp_falls_back_when_driver_clock_is_missing (test_scream_stream.FramingTests.test_microphone_timestamp_falls_back_when_driver_clock_is_missing) ... ok
+test_processor_short_live_audio_does_not_pad (test_scream_stream.FramingTests.test_processor_short_live_audio_does_not_pad) ... ok
+test_short_and_exact_length_tail_policy (test_scream_stream.FramingTests.test_short_and_exact_length_tail_policy) ... ok
+test_streaming_resampling_matches_whole_causal_reference (test_scream_stream.FramingTests.test_streaming_resampling_matches_whole_causal_reference) ... ok
+test_unusual_rate_rejected_without_unbounded_filter (test_scream_stream.FramingTests.test_unusual_rate_rejected_without_unbounded_filter) ... ok
+test_bad_block_reports_error_then_recovers_without_false_confirmation (test_scream_stream.IngestionTests.test_bad_block_reports_error_then_recovers_without_false_confirmation) ... ok
+test_callback_can_request_stop_without_joining_its_own_thread (test_scream_stream.IngestionTests.test_callback_can_request_stop_without_joining_its_own_thread) ... ok
+test_capture_latency_and_monitoring_fields_are_exposed (test_scream_stream.IngestionTests.test_capture_latency_and_monitoring_fields_are_exposed) ... ok
+test_drop_newest_clock_and_gap_confirmation (test_scream_stream.IngestionTests.test_drop_newest_clock_and_gap_confirmation) ... ok
+test_explicit_driver_discontinuity_cannot_combine_votes (test_scream_stream.IngestionTests.test_explicit_driver_discontinuity_cannot_combine_votes) ... ok
+test_processor_enforces_channels_before_conversion (test_scream_stream.IngestionTests.test_processor_enforces_channels_before_conversion) ... ok
+test_receiver_error_does_not_kill_worker (test_scream_stream.IngestionTests.test_receiver_error_does_not_kill_worker) ... ok
+test_slow_native_work_does_not_wait_in_capture_and_stop_suppresses_late_alert (test_scream_stream.IngestionTests.test_slow_native_work_does_not_wait_in_capture_and_stop_suppresses_late_alert) ... ok
+test_submit_owns_copy_and_validates_clock_rate_and_size (test_scream_stream.IngestionTests.test_submit_owns_copy_and_validates_clock_rate_and_size) ... ok
+test_invalid_types_rates_and_channels (test_scream_stream.ModelInputTests.test_invalid_types_rates_and_channels) ... ok
+test_metadata_window_batch_and_class_index (test_scream_stream.ModelInputTests.test_metadata_window_batch_and_class_index) ... ok
+test_pcm16_saturation_and_stereo_validation_before_mix (test_scream_stream.ModelInputTests.test_pcm16_saturation_and_stereo_validation_before_mix) ... ok
+test_rejects_multitensor_and_dynamic_models (test_scream_stream.ModelInputTests.test_rejects_multitensor_and_dynamic_models) ... ok
+test_rejects_runtime_shape_range_and_nan (test_scream_stream.ModelInputTests.test_rejects_runtime_shape_range_and_nan) ... ok
+test_rejects_wrong_output_metadata (test_scream_stream.ModelInputTests.test_rejects_wrong_output_metadata) ... ok
+test_wrong_audio_length_and_closed_model (test_scream_stream.ModelInputTests.test_wrong_audio_length_and_closed_model) ... ok
+test_chunk_invariant_windows_and_clock (test_system.AudioTests.test_chunk_invariant_windows_and_clock) ... ok
+test_confirmation_and_cooldown (test_system.AudioTests.test_confirmation_and_cooldown) ... ok
+test_invalid_waveform (test_system.AudioTests.test_invalid_waveform) ... ok
+test_model_contract_with_fake_runtime (test_system.AudioTests.test_model_contract_with_fake_runtime) ... ok
+test_peak_alone_does_not_confirm (test_system.AudioTests.test_peak_alone_does_not_confirm) ... ok
+test_resample_pcm_and_stereo (test_system.AudioTests.test_resample_pcm_and_stereo) ... ok
+test_supplied_negative_maxima (test_system.AudioTests.test_supplied_negative_maxima) ... ok
+test_calibration_rejects_test_data (test_system.EvaluationTests.test_calibration_rejects_test_data) ... ok
+test_event_matching_duplicates_and_delay (test_system.EvaluationTests.test_event_matching_duplicates_and_delay) ... ok
+test_noise_reproducibility (test_system.EvaluationTests.test_noise_reproducibility) ... ok
+test_source_leakage (test_system.EvaluationTests.test_source_leakage) ... ok
+test_wer_cer (test_system.EvaluationTests.test_wer_cer) ... ok
+test_context_and_hindi (test_system.SafetyTests.test_context_and_hindi) ... ok
+test_higher_priority_bypasses_lower_incident_cooldown (test_system.SafetyTests.test_higher_priority_bypasses_lower_incident_cooldown) ... ok
+test_missing_asr_asset_fails_offline (test_system.SafetyTests.test_missing_asr_asset_fails_offline) ... ok
+test_ordinary_ambiguity_is_not_emergency (test_system.SafetyTests.test_ordinary_ambiguity_is_not_emergency) ... ok
+test_quiet_speech_not_gated_on_yamnet (test_system.SafetyTests.test_quiet_speech_not_gated_on_yamnet) ... ok
+test_resource_hysteresis (test_system.SafetyTests.test_resource_hysteresis) ... ok
+test_uncertainty_and_manual (test_system.SafetyTests.test_uncertainty_and_manual) ... ok
+test_validated_risk_and_duplicate (test_system.SafetyTests.test_validated_risk_and_duplicate) ... ok
+
+----------------------------------------------------------------------
+Ran 69 tests in 3.502s
+
+OK
