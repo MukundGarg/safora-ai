@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "source_rate": 16000,
+  "hop_samples": 8000,
+  "threshold": 0.30,
+  "confirmation_hits": 2,
+  "confirmation_windows": 3,
+  "cooldown_seconds": 10,
+  "block_seconds": 0.1,
+  "queue_capacity": 4,
+  "max_channels": 2,
+  "clip_input": false
+}

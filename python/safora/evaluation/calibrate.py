@@ -4,6 +4,8 @@ from safora.audio.stream import TemporalDetector
 from safora.evaluation.metrics import event_metrics,prf
 
 def sweep(records):
+    if any(r.get('reused', False) or r.get('benchmark_status') in {'reused', 'reused_not_independent'} or r.get('split') == 'reused_external' for r in records):
+        raise ValueError('Reused evaluation data must not be used for calibration')
     if any(r['split']!='validation' for r in records):raise ValueError('Calibration uses validation only')
     output=[]
     for threshold in [.1,.2,.3,.4,.5,.6,.7,.8,.9]:
