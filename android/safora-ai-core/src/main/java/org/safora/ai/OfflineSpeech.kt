@@ -7,24 +7,50 @@ import org.json.JSONObject
 /** Local Vosk alternative. Model language must be declared to the user.
  * A monolingual Hindi/English model does not imply code-switching support. */
 class VoskSpeech(modelDirectory: String) : SpeechRecognizer {
-    private val model = Model(modelDirectory)
-    override fun transcribe(pcm: FloatArray): Recognition {
-        require(pcm.size <= 16000*12)
-        val shorts=ShortArray(pcm.size) { (pcm[it].coerceIn(-1f,1f)*32767).toInt().toShort() }
+    private val model=Model(modelDirectory)
+    private var closed=false
+    @Synchronized override fun transcribe(pcm:FloatArray):Recognition {
+        check(!closed) { "ASR is closed" }
+        val shorts=asrPcm16(pcm)
+        if(shorts.isEmpty()) return Recognition("",true)
         return try {
             Recognizer(model,16000f).use { recognizer ->
                 recognizer.setWords(true)
-                recognizer.acceptWaveForm(shorts,shorts.size)
-                val result=JSONObject(recognizer.finalResult)
-                val text=result.optString("text","")
-                val words=result.optJSONArray("result")
-                val confidence=if(words!=null && words.length()>0)
-                    (0 until words.length()).map { words.getJSONObject(it).optDouble("conf",0.0) }.average() else 0.0
-                Recognition(text,text.isBlank() || confidence<0.75)
+                val parts=mutableListOf<String>();var confidence=0.0;var count=0;var unavailable=false;var malformed=false
+                fun collect(raw:String) {
+                    try {
+                        require(raw.length<=65536)
+                        val result=JSONObject(raw)
+                        val text=result.get("text") as? String ?: error("Malformed ASR text")
+                        require(text.length<=4096 && parts.sumOf { it.length }+text.length<=4096)
+                        if(text.isNotBlank()) {
+                            parts.add(text.trim())
+                            val words=result.optJSONArray("result")
+                            if(words==null || words.length()==0) unavailable=true
+                            else {
+                                require(words.length()<=2048)
+                                for(i in 0 until words.length()) {
+                                    val value=words.getJSONObject(i).get("conf")
+                                    require(value is Number)
+                                    val score=value.toDouble();require(score.isFinite() && score in 0.0..1.0)
+                                    confidence+=score;count++
+                                }
+                            }
+                        }
+                    } catch(_:Exception) { malformed=true }
+                }
+                for(start in shorts.indices step 1600) {
+                    val chunk=shorts.copyOfRange(start,minOf(shorts.size,start+1600))
+                    try { if(recognizer.acceptWaveForm(chunk,chunk.size)) collect(recognizer.result) }
+                    finally { chunk.fill(0) }
+                }
+                collect(recognizer.finalResult)
+                val text=if(malformed) "" else parts.joinToString(" ")
+                Recognition(text,malformed || text.isBlank() || unavailable || count==0 || confidence/count<0.75)
             }
         } finally { shorts.fill(0) }
     }
-    override fun close() = model.close()
+    @Synchronized override fun close() { if(!closed) { model.close();closed=true } }
 }
 
 /** Explicitly unvalidated baseline; every result remains uncertain. */

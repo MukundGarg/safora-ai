@@ -1,0 +1,13 @@
+language	text	history	history_uncertain	expected_labels
+en	I will hurt you	-	false	explicit_threat
+hi	जान से मार दूंगा	-	false	explicit_threat
+hinglish	phir bhi do it anyway	maine mana kiya	false	refusal_ignored
+en	i said no stop touching me	-	false	distress_expression,unwanted_sexual_advance
+en	I won't hurt you	-	false	neutral_or_uncertain
+en	"I will hurt you"	-	false	neutral_or_uncertain
+hi	छूना बंद करो	-	false	distress_expression,unwanted_sexual_advance
+en	Do it anyway	I said no	true	neutral_or_uncertain
+en	You have no choice, kiss me	-	false	sexual_coercion
+hi	अकेले आओ, कोई चारा नहीं	-	false	isolation_pressure
+en	don't tell anyone, you have no choice	-	false	secrecy_pressure
+en	Would you like coffee?	-	false	neutral_or_uncertain

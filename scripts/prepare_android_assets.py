@@ -2,6 +2,7 @@
 Runtime remains offline. Downloads are cached in work/model-downloads by default.
 """
 import argparse,hashlib,json,shutil,sys,urllib.request,zipfile,subprocess
+from safora.asr.assets import validate_archive
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--cache',type=Path,default=root/'work/model-downloads');a=p.parse_args()
@@ -31,9 +32,7 @@ for lang,spec in meta['vosk'].items():
             if sha(temporary)!=spec['sha256']:raise ValueError('Model SHA256 mismatch')
             temporary.replace(path)
         finally:temporary.unlink(missing_ok=True)
-    with zipfile.ZipFile(path) as archive:
-        if archive.testzip() is not None:raise ValueError('Corrupt model archive')
-        if spec['root']+'/am/final.mdl' not in archive.namelist():raise ValueError('Wrong model archive')
+    validate_archive(path,spec)
     shutil.copyfile(path,assets/spec['asset'])
     print(f'{lang}: {spec["root"]} ({spec["bytes"]} bytes); {spec["license"]}')
 shutil.copyfile(root/'LICENSE',assets/'MODEL-LICENSE-APACHE-2.0.txt')

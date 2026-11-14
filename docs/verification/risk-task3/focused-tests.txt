@@ -1,0 +1,41 @@
+test_encoder_api_local_loading_uncertainty_scores_exclusivity_cleanup (test_risk_bundle.RiskBundleTests.test_encoder_api_local_loading_uncertainty_scores_exclusivity_cleanup) ... ok
+test_export_guard_creates_no_output_for_untrained_directory (test_risk_bundle.RiskBundleTests.test_export_guard_creates_no_output_for_untrained_directory) ... ok
+test_hash_corruption_and_path_escape_rejected (test_risk_bundle.RiskBundleTests.test_hash_corruption_and_path_escape_rejected) ... ok
+test_missing_generic_untrained_and_wrong_label_metadata_rejected (test_risk_bundle.RiskBundleTests.test_missing_generic_untrained_and_wrong_label_metadata_rejected) ... ok
+test_duplicate_conflicting_or_normalized_text (test_risk_data.RiskDataTests.test_duplicate_conflicting_or_normalized_text) ... ok
+test_invalid_labels_annotations_and_hard_negative (test_risk_data.RiskDataTests.test_invalid_labels_annotations_and_hard_negative) ... ok
+test_missing_license_permission_and_provenance (test_risk_data.RiskDataTests.test_missing_license_permission_and_provenance) ... ok
+test_preflight_blocks_before_imports_or_model_output (test_risk_data.RiskDataTests.test_preflight_blocks_before_imports_or_model_output) ... ok
+test_source_session_group_leakage (test_risk_data.RiskDataTests.test_source_session_group_leakage) ... ok
+test_strict_jsonl_duplicate_keys_invalid_json_and_empty_rows (test_risk_data.RiskDataTests.test_strict_jsonl_duplicate_keys_invalid_json_and_empty_rows) ... ok
+test_text_context_unicode_and_split_bounds (test_risk_data.RiskDataTests.test_text_context_unicode_and_split_bounds) ... ok
+test_valid_schema_and_stable_metadata_without_text (test_risk_data.RiskDataTests.test_valid_schema_and_stable_metadata_without_text) ... ok
+test_consistent_neutral_decision (test_risk_evaluation.RiskEvaluationTests.test_consistent_neutral_decision) ... ok
+test_empty_or_bad_shapes_nan_and_thresholds_rejected (test_risk_evaluation.RiskEvaluationTests.test_empty_or_bad_shapes_nan_and_thresholds_rejected) ... ok
+test_failed_heldout_run_is_not_silently_retried (test_risk_evaluation.RiskEvaluationTests.test_failed_heldout_run_is_not_silently_retried) ... ok
+test_hard_negative_error_analysis_and_language_slices_no_text (test_risk_evaluation.RiskEvaluationTests.test_hard_negative_error_analysis_and_language_slices_no_text) ... ok
+test_heldout_exclusive_once_and_frozen_thresholds (test_risk_evaluation.RiskEvaluationTests.test_heldout_exclusive_once_and_frozen_thresholds) ... ok
+test_metrics_confusion_macro_micro_and_unavailable (test_risk_evaluation.RiskEvaluationTests.test_metrics_confusion_macro_micro_and_unavailable) ... ok
+test_score_cli_binds_dataset_model_and_excludes_test_from_calibration (test_risk_evaluation.RiskEvaluationTests.test_score_cli_binds_dataset_model_and_excludes_test_from_calibration) ... ok
+test_validation_only_thresholds_ties_and_unsupported_labels (test_risk_evaluation.RiskEvaluationTests.test_validation_only_thresholds_ties_and_unsupported_labels) ... ok
+test_asr_uncertainty_and_unknown_speakers (test_risk_task3.RiskRulesTests.test_asr_uncertainty_and_unknown_speakers) ... ok
+test_consensual_normal_and_ambiguous_dialogue (test_risk_task3.RiskRulesTests.test_consensual_normal_and_ambiguous_dialogue) ... ok
+test_context_and_text_bounds_privacy (test_risk_task3.RiskRulesTests.test_context_and_text_bounds_privacy) ... ok
+test_devanagari_hindi (test_risk_task3.RiskRulesTests.test_devanagari_hindi) ... ok
+test_empty_invalid_unicode_and_input_types (test_risk_task3.RiskRulesTests.test_empty_invalid_unicode_and_input_types) ... ok
+test_english_threat_and_distress (test_risk_task3.RiskRulesTests.test_english_threat_and_distress) ... ok
+test_neutral_consistency_and_close (test_risk_task3.RiskRulesTests.test_neutral_consistency_and_close) ... ok
+test_normalization_preserves_negation_script_and_marks (test_risk_task3.RiskRulesTests.test_normalization_preserves_negation_script_and_marks) ... ok
+test_quotes_reporting_fiction_negation (test_risk_task3.RiskRulesTests.test_quotes_reporting_fiction_negation) ... ok
+test_refusal_then_continuation_requires_pressure (test_risk_task3.RiskRulesTests.test_refusal_then_continuation_requires_pressure) ... ok
+test_romanized_hindi_and_hinglish (test_risk_task3.RiskRulesTests.test_romanized_hindi_and_hinglish) ... ok
+test_secrecy_isolation_require_coercion (test_risk_task3.RiskRulesTests.test_secrecy_isolation_require_coercion) ... ok
+test_sexual_coercion_and_unwanted_advance (test_risk_task3.RiskRulesTests.test_sexual_coercion_and_unwanted_advance) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.124s
+
+OK
+{"status": "complete", "accuracy_provenance": "supplier_scores_not_independently_verified"}
+{"status": "complete", "accuracy_provenance": "supplier_scores_not_independently_verified"}
+{"status": "evaluation_blocked", "reason": "invalid_or_unavailable_data_scores_or_frozen_calibration"}

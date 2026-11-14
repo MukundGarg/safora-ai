@@ -27,3 +27,10 @@ models are separate; no accurate multilingual/code-switching coverage is claimed
 See `android-model-notices.md` for provenance and licenses and `docs/test-report.md`
 for the precise runtime evidence. Source exports exclude generated weight files;
 APK exports contain the licensed YAMNet/Vosk assets plus notices.
+
+Task 3 retains that absence of genuine risk weights. Version2 research bundle
+loading now verifies declared training/data provenance, label order, frozen
+validation thresholds and file checksums. Export refuses an untrained bundle and
+requires actual numerical/decision parity. These paths await legitimate data,
+compatible local base weights and native dependencies; see
+`docs/risk-task3-report.md`. No production risk model has been created.

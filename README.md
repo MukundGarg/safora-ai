@@ -7,6 +7,10 @@ Real pretrained YAMNet and offline English/Hindi Vosk ASR models are provisioned
 and bundled in the debug APK. English/Hindi models are separate; code-switching
 and real-world safety/ASR accuracy are not established.
 
+Current integration/handoff: [Member 2 final handoff](docs/member2-final-handoff.md)
+and [final test report](docs/member2-final-test-report.md). Task 4 builds/tests pass,
+but its changed APK has not run on Android; emulator startup was disk-blocked.
+
 ## Build and install Android
 
 Install Android SDK35/build-tools35.0.0/platform-tools and JDK17 or compatible newer
@@ -31,8 +35,8 @@ Open the app, allow local notifications, select English or Hindi, opt in to visi
 microphone monitoring and press Start. The app starts in Lite while the resource
 controller observes capacity; Standard/Enhanced enable optional ASR. Eight-second
 VAD-gated speech chunks run independently of scream scores. Level1 creates a
-local check-in; confirmed acoustic events and manual SOS request local incident
-verification. **No contacts are notified**, including on manual SOS. Stop/pause and
+local check-in; Task 4 acoustic and conversation cues also remain uncertain local
+check-ins. Only independent manual SOS requests local incident verification. **No contacts are notified**, including on manual SOS. Stop/pause and
 manual SOS remain available. Monitoring coverage and performance counters are
 visible. Export anonymous metrics explicitly with the app's export button.
 
@@ -72,7 +76,7 @@ The four supplied recording summaries are not population accuracy evidence.
 ```bash
 pip install -e '.[training]'
 python -m safora.training.train --base /local/multilingual-encoder --data licensed.jsonl --output models/risk
-python scripts/export_encoder.py models/risk models/risk-int8.onnx
+python scripts/export_encoder.py models/risk models/risk-onnx --probes /local/authorized-parity-probes.json
 ```
 
 No licensed labeled safety dataset was supplied, so no risk encoder was trained.
@@ -106,3 +110,28 @@ thread-safe drop-newest ingestion and metadata-derived YAMNet framing, separate
 from the legacy ASR/fusion pipeline. See [scream-detector-report](docs/scream-detector-report.md)
 for fixed-config evaluation, provisional thresholds, reused-dataset restrictions,
 monitoring-only outputs and precise test scope. Android integration remains separate.
+
+## Task 2 offline ASR
+
+The bounded English/Hindi Vosk controller, local model preparation and WER/CER
+manifest evaluator are described in [asr-task2-report](docs/asr-task2-report.md).
+See [Android ASR contract](docs/asr-android-contract.md) for the core handoff and
+remaining app integration. Host-native smoke tests do not establish phone behavior
+or speech-recognition accuracy.
+
+## Task 3 conversation-risk hardening
+
+The bounded offline classifier API, explicitly unvalidated multilingual rules,
+permission-attested training schema, validation-only thresholds and guarded ONNX
+path are documented in [risk-task3-report](docs/risk-task3-report.md). No genuine
+risk dataset/checkpoint was supplied; no learned model was trained or exported.
+See the [taxonomy](docs/risk-taxonomy.md), [data protocol](docs/risk-training-data.md)
+and [Kotlin handoff contract](docs/risk-integration-contract.md).
+
+## Task 4 shared ML coordination
+
+Use Python `MLCoordinator` or Kotlin `MlController` with one existing microphone.
+Independent bounded acoustic/speech workers, explicit language and lifecycle,
+uncertainty/provenance and monitoring-only check-ins are integrated. See the final
+handoff for code examples, asset provisioning, runnable smoke paths and unverified
+device/data requirements. No trained risk weights or automatic dispatch are added.
