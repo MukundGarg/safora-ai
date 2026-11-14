@@ -1,0 +1,30 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :app
+Unable to initialize metrics, ensure /home/agent/.android is writable, details: /home/agent/.android/analytics.settings (No such file or directory)
+
+> Task :safora-ai-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :safora-ai-core:preBuild UP-TO-DATE
+> Task :safora-ai-core:preDebugBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugResValues
+> Task :safora-ai-core:generateDebugResources
+> Task :safora-ai-core:packageDebugResources
+> Task :safora-ai-core:javaPreCompileDebug
+> Task :safora-ai-core:preDebugUnitTestBuild UP-TO-DATE
+> Task :safora-ai-core:javaPreCompileDebugUnitTest
+> Task :safora-ai-core:parseDebugLocalResources
+> Task :safora-ai-core:generateDebugRFile
+> Task :safora-ai-core:generateDebugUnitTestStubRFile
+> Task :safora-ai-core:compileDebugKotlin
+> Task :safora-ai-core:compileDebugJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:bundleLibRuntimeToJarDebug
+> Task :safora-ai-core:bundleLibCompileToJarDebug
+> Task :safora-ai-core:processDebugJavaRes
+> Task :safora-ai-core:compileDebugUnitTestKotlin
+> Task :safora-ai-core:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:processDebugUnitTestJavaRes
+> Task :safora-ai-core:testDebugUnitTest
+
+BUILD SUCCESSFUL in 1m
+15 actionable tasks: 15 executed

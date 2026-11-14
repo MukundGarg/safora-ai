@@ -1,0 +1,32 @@
+{
+  "host_cpu_only": true,
+  "accuracy_evaluated": false,
+  "models": [
+    {
+      "language": "en",
+      "archive_sha256": "30f26242c4eb449f948e42cb302dd7a686cb29a3423a8367f99ff41780942498",
+      "workload": "authored synthetic speech",
+      "samples": 128000,
+      "load_seconds": 1.1035389009994105,
+      "decode_seconds": 1.6379398690005473,
+      "transcript_characters": 29,
+      "nonempty_transcript": true,
+      "uncertain": false,
+      "reason": null,
+      "final": true
+    },
+    {
+      "language": "hi",
+      "archive_sha256": "7c50a10866889f0ac21d912c20537a055a597ed09fc1d3e5bcd798f9f0017e48",
+      "workload": "authored synthetic speech",
+      "samples": 32637,
+      "load_seconds": 0.6638109759987856,
+      "decode_seconds": 1.692345020997891,
+      "transcript_characters": 18,
+      "nonempty_transcript": true,
+      "uncertain": false,
+      "reason": null,
+      "final": true
+    }
+  ]
+}

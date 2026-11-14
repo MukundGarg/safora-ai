@@ -1,0 +1,16 @@
+test_asr_missing_reference_remains_unknown (test_audio_evidence.AudioEvidenceTests.test_asr_missing_reference_remains_unknown) ... ok
+test_decoded_duplicate_different_wav_headers_and_crops (test_audio_evidence.AudioEvidenceTests.test_decoded_duplicate_different_wav_headers_and_crops) ... ok
+test_file_corruption_and_unknown_speaker_are_blocked (test_audio_evidence.AudioEvidenceTests.test_file_corruption_and_unknown_speaker_are_blocked) ... ok
+test_intervals_are_unavailable_without_denominator (test_audio_evidence.AudioEvidenceTests.test_intervals_are_unavailable_without_denominator) ... ok
+test_no_weak_recording_label_to_all_windows (test_audio_evidence.AudioEvidenceTests.test_no_weak_recording_label_to_all_windows) ... ok
+test_partial_annotations_exclude_unknown_time_and_unanalyzed_exposure (test_audio_evidence.AudioEvidenceTests.test_partial_annotations_exclude_unknown_time_and_unanalyzed_exposure) ... ok
+test_permission_missing_metadata_and_invalid_intervals (test_audio_evidence.AudioEvidenceTests.test_permission_missing_metadata_and_invalid_intervals) ... ok
+test_prepared_directory_does_not_trust_a_rewritten_receipt (test_audio_evidence.AudioEvidenceTests.test_prepared_directory_does_not_trust_a_rewritten_receipt) ... ok
+test_source_speaker_session_crop_leakage (test_audio_evidence.AudioEvidenceTests.test_source_speaker_session_crop_leakage) ... ok
+test_strict_json_and_absent_data_fit_creates_no_weights (test_audio_evidence.AudioEvidenceTests.test_strict_json_and_absent_data_fit_creates_no_weights) ... ok
+test_valid_manifest_content_hash_and_duration (test_audio_evidence.AudioEvidenceTests.test_valid_manifest_content_hash_and_duration) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.033s
+
+OK

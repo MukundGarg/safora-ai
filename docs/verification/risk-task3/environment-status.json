@@ -1,0 +1,12 @@
+{
+  "training_data_supplied": false,
+  "verified_risk_checkpoint_present": false,
+  "trained_weights_produced": false,
+  "onnx_export_produced": false,
+  "dependencies": {
+    "torch": "unavailable",
+    "transformers": "unavailable",
+    "onnx": "unavailable",
+    "onnxruntime": "unavailable"
+  }
+}

@@ -1,0 +1,3 @@
+docs/verification/scream-task1/infer-cli.jsonl
+android/app/src/androidTest/assets/synthetic-refusal.pcm16
+android/app/src/androidTest/assets/synthetic-coffee.pcm16

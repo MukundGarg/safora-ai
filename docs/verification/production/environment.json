@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14",
+  "risk_dataset_supplied": false,
+  "reviewed_audio_dataset_supplied": false,
+  "risk_checkpoint_present": false,
+  "wearable_firmware_or_transport_present": false,
+  "physical_device_available": false,
+  "optional_training_dependencies": {
+    "torch": false,
+    "transformers": false,
+    "onnx": false,
+    "onnxruntime": false
+  }
+}

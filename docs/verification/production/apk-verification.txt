@@ -1,0 +1,12 @@
+test_64bit_native_elf_load_segments_are_16kb_aligned (test_android_packaging.AndroidPackagingTests.test_64bit_native_elf_load_segments_are_16kb_aligned) ... ok
+test_all_pinned_models_are_bundled (test_android_packaging.AndroidPackagingTests.test_all_pinned_models_are_bundled) ... ok
+test_extracted_file_metadata_matches_pinned_archives (test_android_packaging.AndroidPackagingTests.test_extracted_file_metadata_matches_pinned_archives) ... ok
+test_native_runtime_abi_consistency (test_android_packaging.AndroidPackagingTests.test_native_runtime_abi_consistency) ... ok
+test_no_recordings_or_synthetic_fixture_in_main_assets (test_android_packaging.AndroidPackagingTests.test_no_recordings_or_synthetic_fixture_in_main_assets) ... ok
+test_risk_classifier_is_explicitly_untrained (test_android_packaging.AndroidPackagingTests.test_risk_classifier_is_explicitly_untrained) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.248s
+
+OK
+APK package verified; device/emulator runtime status must be recorded separately.

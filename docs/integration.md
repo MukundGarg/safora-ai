@@ -1,5 +1,11 @@
 # SAFORA Android integration guide
 
+Task 4 current coordination and monitoring-only semantics are documented in
+[Member 2 final handoff](member2-final-handoff.md). The older flow/helper descriptions
+below retain historical context; new ML integration uses `MlController` /
+`MLCoordinator`, not direct high-level emergency calls. See the
+[final test report](member2-final-test-report.md) for current artifact/runtime limits.
+
 ## What the demo actually contains
 
 Import `android/safora-ai-core` as a Gradle module. Its dependencies are Kotlin

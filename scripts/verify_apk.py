@@ -1,7 +1,7 @@
 """Check signatures, ZIP alignment, metadata, and pinned assets. Not a device test."""
 import argparse,hashlib,json,os,re,subprocess,unittest,zipfile,struct
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('apk',type=Path);p.add_argument('--build-tools',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('apk',type=Path);p.add_argument('--build-tools',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--require-native-16kb',action='store_true');a=p.parse_args()
 root=Path(__file__).resolve().parents[1];apk=a.apk.resolve()
 os.environ['SAFORA_APK']=str(apk)
 suite=unittest.defaultTestLoader.discover(str(root/'tests'),pattern='test_android_packaging.py')
@@ -33,4 +33,5 @@ report={'apk':apk.name,'bytes':apk.stat().st_size,'sha256':hashlib.sha256(apk.re
         'badging':badging,'android_runtime_tested_by_this_check':False,'elf_min_load_alignment_bytes':elf,'native_16kb_static_alignment_passed':native16,
         'notes':'Signature/asset/ZIP checks do not verify installation, ELF 16KB compatibility, microphone, ASR accuracy, or device behavior.'}
 a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(report,indent=2)+'\n')
+if a.require_native_16kb and not native16:raise SystemExit('Native 16KB ELF alignment gate failed')
 print('APK package verified; device/emulator runtime status must be recorded separately.')

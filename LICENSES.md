@@ -20,3 +20,10 @@ provenance privately. No training dataset is supplied or represented as licensed
 - Robolectric Android framework artifacts were used only for compile checking,
   not distributed. Subsequent APKs were built using the actual Android SDK35;
   the older surrogate check is not presented as device/runtime verification.
+
+Current reconciliation/hardening branch replaces the Android interpreter runtime
+with LiteRT1.4.2 and upgrades Vosk Android0.3.75/JNA5.18.1. Published POM license
+records and direct artifact hashes are captured under docs/verification/production/;
+models/android-runtime-notices.md is packaged as RUNTIME-NOTICES.txt. Model weights
+and their existing notices are unchanged. Final distribution/legal/NOTICE review
+remains a release gate; static verification is not a legal opinion.

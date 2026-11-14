@@ -1,0 +1,4 @@
+{
+  "status": "training_blocked",
+  "reason": "Training blocked: no verified dataset"
+}

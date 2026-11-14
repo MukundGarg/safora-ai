@@ -191,3 +191,54 @@ APK, instrumented-test APK, source ZIP, integration/test reports and checksums,
 without private recordings, signing keys or fabricated trained safety weights.
 The writable export directory for this task is `/workspace/output/`; it replaces
 the read-only download directory encountered during the initial implementation.
+
+## Task 2 ASR follow-up — 14 November 2026
+
+Task 2 host regressions: **104 Python passed (0 failed/skipped)** including all
+Task 1 tests and real local English/Hindi Vosk, YAMNet and optional Whisper smoke;
+**14 Kotlin JVM tests passed (0 failed/skipped)** and core sources compiled.
+See [Task 2 report](asr-task2-report.md) for commands, model hashes, logs, contract
+and remaining work. English/Hindi synthetic speech produced nonempty final
+transcripts; no representative labeled ASR corpus was supplied, so WER/CER and
+Hinglish accuracy are unavailable. Task 2 did not run a changed APK on Android;
+prior APK/emulator evidence above applies to the earlier artifact. Independent
+Android ASR queue/lifecycle/clock integration and physical low-RAM phone tests
+remain outstanding. Conversation classifier status remains untrained/unvalidated.
+
+## Task 3 risk-classifier follow-up — 14 November 2026
+
+**138 Python passed, 0 failed/skipped; 14 Kotlin JVM passed, 0 failed/skipped.**
+Task 1/2 tests and native host-model smoke remain passing. Android sources/UI and
+acoustic/ASR modules are unchanged; no Task 3 APK/device run occurred. See
+[Task 3 report](risk-task3-report.md) for logs, precise caveats and remaining Task 4
+work. No verified labeled risk data/base checkpoint was supplied; training and
+export correctly report blocked. No genuine risk weights/ONNX artifact or measured
+risk precision/recall/F1 were produced. Heuristic output remains uncertain and
+explicitly unvalidated; numerical/unit fixtures are not learned-model evaluation.
+
+## Task 4 final integration — 14 November 2026
+
+**147 Python passed,22 Kotlin JVM passed,0 failed/skipped.** Debug app and
+instrumentation APKs built; lint0errors/12warnings;4APK package checks/signature/ZIP
+alignment passed. Task 4 APK was **not run on Android**: emulator startup failed
+disk-space checks. Native64-bit ELF16KB readiness still fails static alignment.
+Real local YAMNet and EN/HI Vosk ran through the new Python coordinator; both
+synthetic speech segments decoded, but selected no positive heuristic labels.
+No labeled safety/ASR/risk accuracy or genuine learned-risk model exists. See
+[final handoff](member2-final-handoff.md) and [final test report](member2-final-test-report.md)
+for precise failures/fixes, resource observations, artifact hash and remaining
+physical-device/data work. Current ML events are uncertain local check-ins only;
+manual SOS stays independent. Historical emulator results above apply to the old
+artifact only. No teammate UI/contacts/firmware or external dispatch was changed.
+
+## Reconciled production-gate follow-up — 14 November 2026
+
+Actual main lacked Tasks 2–4 despite merged stacked PR badges; recovery preserves
+ancestry on a new feature branch (see repository-reconciliation.md). Recovered tree
+reran147Python/22Kotlin. Hardened tree:160Python/27Kotlin,0failed/skipped;6APK checks
+and signed-debug ZIP/native64-bit16KB static gates pass with newer verified runtimes.
+Debug/instrumentation and unsigned release APK/AAB build; lint0errors/12warnings.
+No Android runtime/device/wearable test executed: emulator startup is disk-blocked.
+No representative accuracy improvement or genuine trained/exported risk weights.
+Current evidence/gate owners/signoff blockers are in production-readiness.md; old
+artifact hashes/results above remain historical. NOT PRODUCTION-QUALIFIED.

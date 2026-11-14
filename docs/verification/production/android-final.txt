@@ -1,0 +1,263 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :app
+Unable to initialize metrics, ensure /home/agent/.android is writable, details: /home/agent/.android/analytics.settings (No such file or directory)
+
+> Task :safora-ai-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :safora-ai-core:preBuild UP-TO-DATE
+> Task :safora-ai-core:preDebugBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugResValues UP-TO-DATE
+> Task :safora-ai-core:generateDebugResources UP-TO-DATE
+> Task :safora-ai-core:packageDebugResources UP-TO-DATE
+> Task :safora-ai-core:parseDebugLocalResources UP-TO-DATE
+> Task :safora-ai-core:generateDebugRFile UP-TO-DATE
+
+> Task :safora-ai-core:compileDebugKotlin
+e: The daemon has terminated unexpectedly on startup attempt #1 with error code: 0. The daemon process output:
+    1. Kotlin compile daemon is ready
+
+> Task :safora-ai-core:javaPreCompileDebug UP-TO-DATE
+> Task :safora-ai-core:compileDebugJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:bundleLibRuntimeToJarDebug
+> Task :safora-ai-core:bundleLibCompileToJarDebug
+> Task :safora-ai-core:preDebugUnitTestBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :safora-ai-core:compileDebugUnitTestKotlin
+> Task :safora-ai-core:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :safora-ai-core:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:processDebugJavaRes UP-TO-DATE
+> Task :safora-ai-core:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :safora-ai-core:testDebugUnitTest
+> Task :app:verifyOfflineAssets
+> Task :app:preBuild
+> Task :app:preDebugBuild
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :safora-ai-core:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :safora-ai-core:extractDeepLinksDebug UP-TO-DATE
+> Task :safora-ai-core:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :safora-ai-core:compileDebugLibraryResources UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:compileDebugKotlin
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :safora-ai-core:mergeDebugShaders UP-TO-DATE
+> Task :safora-ai-core:compileDebugShaders NO-SOURCE
+> Task :safora-ai-core:generateDebugAssets UP-TO-DATE
+> Task :safora-ai-core:packageDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :safora-ai-core:bundleLibRuntimeToDirDebug
+> Task :app:mergeLibDexDebug
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :safora-ai-core:mergeDebugJniLibFolders UP-TO-DATE
+> Task :safora-ai-core:mergeDebugNativeLibs NO-SOURCE
+> Task :safora-ai-core:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
+> Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugAndroidTestResources UP-TO-DATE
+> Task :app:mergeDebugAndroidTestResources UP-TO-DATE
+> Task :app:processDebugAndroidTestManifest UP-TO-DATE
+> Task :app:processDebugAndroidTestResources UP-TO-DATE
+> Task :app:compileDebugAndroidTestKotlin
+> Task :app:javaPreCompileDebugAndroidTest UP-TO-DATE
+> Task :app:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :app:mergeDebugAndroidTestShaders UP-TO-DATE
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :app:mergeDebugAndroidTestAssets UP-TO-DATE
+> Task :app:compressDebugAndroidTestAssets UP-TO-DATE
+> Task :app:desugarDebugAndroidTestFileDependencies UP-TO-DATE
+> Task :app:dexBuilderDebugAndroidTest UP-TO-DATE
+> Task :app:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
+> Task :app:processDebugAndroidTestJavaRes UP-TO-DATE
+> Task :app:mergeDebugAndroidTestJavaResource UP-TO-DATE
+> Task :app:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebugAndroidTest UP-TO-DATE
+> Task :app:mergeLibDexDebugAndroidTest UP-TO-DATE
+> Task :app:mergeProjectDexDebugAndroidTest UP-TO-DATE
+> Task :app:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebugAndroidTest UP-TO-DATE
+> Task :app:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :app:packageDebugAndroidTest UP-TO-DATE
+> Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebugAndroidTest UP-TO-DATE
+> Task :app:buildKotlinToolingMetadata UP-TO-DATE
+> Task :app:preReleaseBuild
+> Task :safora-ai-core:preReleaseBuild UP-TO-DATE
+> Task :safora-ai-core:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :safora-ai-core:generateReleaseResValues UP-TO-DATE
+> Task :safora-ai-core:generateReleaseResources UP-TO-DATE
+> Task :safora-ai-core:packageReleaseResources UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :safora-ai-core:extractDeepLinksRelease UP-TO-DATE
+> Task :safora-ai-core:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseMainManifest UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :safora-ai-core:compileReleaseLibraryResources UP-TO-DATE
+> Task :safora-ai-core:parseReleaseLocalResources UP-TO-DATE
+> Task :safora-ai-core:generateReleaseRFile UP-TO-DATE
+> Task :app:processReleaseResources UP-TO-DATE
+> Task :safora-ai-core:compileReleaseKotlin
+> Task :safora-ai-core:javaPreCompileRelease UP-TO-DATE
+> Task :safora-ai-core:compileReleaseJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:bundleLibCompileToJarRelease
+> Task :app:compileReleaseKotlin
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :app:compileReleaseJavaWithJavac NO-SOURCE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :safora-ai-core:bundleLibRuntimeToJarRelease
+> Task :safora-ai-core:processReleaseJavaRes UP-TO-DATE
+> Task :safora-ai-core:createFullJarRelease
+> Task :safora-ai-core:extractProguardFiles UP-TO-DATE
+> Task :safora-ai-core:generateReleaseLintModel
+> Task :safora-ai-core:prepareLintJarForPublish UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :safora-ai-core:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :safora-ai-core:mergeReleaseNativeLibs NO-SOURCE
+> Task :safora-ai-core:stripReleaseDebugSymbols NO-SOURCE
+> Task :safora-ai-core:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :safora-ai-core:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :safora-ai-core:extractReleaseAnnotations
+> Task :safora-ai-core:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :safora-ai-core:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :safora-ai-core:mergeReleaseShaders UP-TO-DATE
+> Task :safora-ai-core:compileReleaseShaders NO-SOURCE
+> Task :safora-ai-core:generateReleaseAssets UP-TO-DATE
+> Task :safora-ai-core:packageReleaseAssets UP-TO-DATE
+> Task :safora-ai-core:prepareReleaseArtProfile UP-TO-DATE
+> Task :safora-ai-core:mergeReleaseJavaResource UP-TO-DATE
+> Task :safora-ai-core:syncReleaseLibJars
+> Task :safora-ai-core:bundleReleaseLocalLintAar
+
+> Task :safora-ai-core:lintVitalAnalyzeRelease
+Warning: Unable to initialize metrics, ensure /home/agent/.android is writable, details: /home/agent/.android/analytics.settings (No such file or directory)
+
+> Task :safora-ai-core:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :app:lintVitalAnalyzeRelease
+> Task :safora-ai-core:generateReleaseLintVitalModel
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :safora-ai-core:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs UP-TO-DATE
+> Task :app:stripReleaseDebugSymbols UP-TO-DATE
+> Task :app:extractReleaseNativeSymbolTables UP-TO-DATE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :safora-ai-core:bundleLibRuntimeToDirRelease
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :app:dexBuilderRelease UP-TO-DATE
+> Task :app:desugarReleaseFileDependencies UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexRelease UP-TO-DATE
+> Task :app:mergeDexRelease
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :app:compileReleaseArtProfile
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:processReleaseJavaRes UP-TO-DATE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:optimizeReleaseResources UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleRelease
+> Task :app:processApplicationManifestReleaseForBundle UP-TO-DATE
+> Task :app:bundleReleaseResources UP-TO-DATE
+> Task :app:buildReleasePreBundle
+> Task :app:configureReleaseDependencies UP-TO-DATE
+> Task :app:parseReleaseIntegrityConfig UP-TO-DATE
+> Task :app:packageReleaseBundle
+> Task :app:signReleaseBundle
+> Task :app:produceReleaseBundleIdeListingFile
+> Task :app:createReleaseBundleListingFileRedirect UP-TO-DATE
+> Task :app:bundleRelease
+> Task :safora-ai-core:stripDebugDebugSymbols NO-SOURCE
+> Task :safora-ai-core:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :safora-ai-core:extractDebugAnnotations
+> Task :safora-ai-core:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :safora-ai-core:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :safora-ai-core:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :safora-ai-core:prepareDebugArtProfile UP-TO-DATE
+> Task :safora-ai-core:mergeDebugJavaResource UP-TO-DATE
+> Task :safora-ai-core:syncDebugLibJars
+> Task :safora-ai-core:bundleDebugLocalLintAar
+> Task :safora-ai-core:createFullJarDebug
+> Task :safora-ai-core:writeDebugLintModelMetadata UP-TO-DATE
+> Task :app:generateDebugAndroidTestLintModel
+> Task :safora-ai-core:generateDebugLintModel
+> Task :app:generateDebugLintReportModel
+> Task :app:preDebugUnitTestBuild
+> Task :app:generateDebugUnitTestLintModel
+> Task :safora-ai-core:lintAnalyzeDebug
+> Task :app:lintAnalyzeDebug
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :safora-ai-core:preDebugAndroidTestBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :safora-ai-core:generateDebugAndroidTestLintModel
+> Task :safora-ai-core:generateDebugUnitTestLintModel
+> Task :safora-ai-core:lintAnalyzeDebugAndroidTest
+> Task :safora-ai-core:lintAnalyzeDebugUnitTest
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///workspace/safora-ai/android/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+
+BUILD SUCCESSFUL in 2m 11s
+204 actionable tasks: 51 executed, 153 up-to-date

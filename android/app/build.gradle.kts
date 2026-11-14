@@ -39,7 +39,7 @@ val verifyOfflineAssets by tasks.registering {
             }
             check(digest.digest().joinToString("") { "%02x".format(it) }==spec["sha256"]) { "Model checksum mismatch: $asset" }
         }
-        for(name in listOf("MODEL-NOTICES.txt","MODEL-LICENSE-APACHE-2.0.txt")) check(file("src/main/assets/$name").isFile)
+        for(name in listOf("MODEL-NOTICES.txt","MODEL-LICENSE-APACHE-2.0.txt","RUNTIME-NOTICES.txt")) check(file("src/main/assets/$name").isFile)
     }
 }
 tasks.named("preBuild").configure { dependsOn(verifyOfflineAssets) }

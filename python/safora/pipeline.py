@@ -3,16 +3,19 @@ from collections import deque
 import numpy as np
 from safora.audio.stream import WindowStream,TemporalDetector,waveform
 from safora.asr.offline import EnergyVAD
+from safora.classifier.text import Turn
 class Pipeline:
-    """Serialized CPU work; bounded queues. Discard transcripts after classification.
-    Caller must feed normalized 16 kHz blocks no longer than one second.
+    """Legacy asyncio adapter with independent acoustic/speech locks and bounded queues.
+    Caller must feed normalized 16 kHz blocks no longer than one second from its
+    event loop. For capture callbacks use Task 1 RealtimeScreamMonitor plus the
+    independent Task 2 StreamingASR, not this legacy asyncio.submit method.
     """
     def __init__(self,yamnet,asr,classifier,engine,on_event,on_status=lambda s:None):
         self.yamnet,self.asr,self.classifier,self.engine=yamnet,asr,classifier,engine
         self.on_event,self.on_status=on_event,on_status
         self.audio=asyncio.Queue(maxsize=8);self.speech=asyncio.Queue(maxsize=2)
         self.windows=WindowStream();self.detector=TemporalDetector();self.vad=EnergyVAD();self.enabled=True
-        self.chunk=[];self.count=0;self.time=0;self.lock=asyncio.Lock();self.context=deque(maxlen=4);self.gap=False
+        self.chunk=[];self.count=0;self.time=0;self.lock=asyncio.Lock();self.speech_lock=asyncio.Lock();self.context=deque(maxlen=4);self.gap=False
     def submit(self,x):
         x=waveform(x)
         if len(x)>16000: raise ValueError('Capture block exceeds one second')
@@ -54,12 +57,12 @@ class Pipeline:
             try:
                 if not self.enabled:
                     self.context.clear();continue
-                async with self.lock:
+                async with self.speech_lock:
                     transcript=await asyncio.to_thread(self.asr.transcribe,chunk)
                     self.context=deque(((t,text) for t,text in self.context if self.time-t<=30),maxlen=4)
                     history=[text for _,text in self.context]
                     risk=await asyncio.to_thread(self.classifier.classify,transcript.text,history,transcript.uncertain)
-                    self.context.append((self.time,transcript.text))
+                    self.context.append((self.time,Turn(transcript.text,transcript.uncertain)))
                 event=self.engine.update(max(self.engine.clock,self.time),risk=risk)
                 if event:self.on_event(event)
             except Exception as exc:self.on_status('conversation_unavailable:'+type(exc).__name__)

@@ -1,0 +1,7 @@
+{
+  "sample_rate": 16000,
+  "queue_capacity": 2,
+  "max_chunk_seconds": 1.0,
+  "max_segment_seconds": 12.0,
+  "emit_partials": false
+}

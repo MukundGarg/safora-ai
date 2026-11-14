@@ -9,8 +9,8 @@ android {
 }
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
-    implementation("com.alphacephei:vosk-android:0.3.47@aar")
-    implementation("net.java.dev.jna:jna:5.13.0@aar")
-    implementation("org.tensorflow:tensorflow-lite:2.16.1")
+    implementation("com.alphacephei:vosk-android:0.3.75@aar")
+    implementation("net.java.dev.jna:jna:5.18.1@aar")
+    implementation("com.google.ai.edge.litert:litert:1.4.2")
     testImplementation("junit:junit:4.13.2")
 }

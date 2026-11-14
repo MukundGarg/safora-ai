@@ -1,0 +1,41 @@
+{
+  "vosk-0.3.75": {
+    "url": "https://repo.maven.apache.org/maven2/com/alphacephei/vosk-android/0.3.75/vosk-android-0.3.75.aar",
+    "bytes": 13472638,
+    "sha256": "ab2f8b91ac8051561aa325546b35fed9a68b36b8121bac5c6fb927525c4adfad",
+    "native": {
+      "jni/arm64-v8a/libvosk.so": 16384,
+      "jni/armeabi-v7a/libvosk.so": 4096,
+      "jni/x86/libvosk.so": 4096,
+      "jni/x86_64/libvosk.so": 16384
+    },
+    "manifest_sample": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"org.vosk\" >\n\n    <uses-sdk android:minSdkVersion=\"21\" />\n\n</manifest>"
+  },
+  "jna-5.18.1": {
+    "url": "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna/5.18.1/jna-5.18.1.aar",
+    "bytes": 522677,
+    "sha256": "7f053e3ec99e14dd71259c82c1c8a02738d64a13c31226b2acc170f3060951e0",
+    "native": {
+      "jni/arm64-v8a/libjnidispatch.so": 16384,
+      "jni/armeabi/libjnidispatch.so": 16384,
+      "jni/armeabi-v7a/libjnidispatch.so": 16384,
+      "jni/mips/libjnidispatch.so": 16384,
+      "jni/mips64/libjnidispatch.so": 16384,
+      "jni/x86_64/libjnidispatch.so": 16384,
+      "jni/x86/libjnidispatch.so": 16384
+    },
+    "manifest_sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.sun.jna\"\n    android:versionCode=\"5180199\"\n    android:versionName=\"5.18.1\" >\n\n    <uses-sdk android:targetSdkVersion=\"25\" />\n</manifest> \n    "
+  },
+  "litert-1.4.2": {
+    "url": "https://dl.google.com/dl/android/maven2/com/google/ai/edge/litert/litert/1.4.2/litert-1.4.2.aar",
+    "bytes": 8305790,
+    "sha256": "9b02cdf9db0a698b341b59e75c54ab8221d6304577cc43830d01024caf1fca74",
+    "native": {
+      "jni/arm64-v8a/libtensorflowlite_jni.so": 16384,
+      "jni/armeabi-v7a/libtensorflowlite_jni.so": 16384,
+      "jni/x86/libtensorflowlite_jni.so": 16384,
+      "jni/x86_64/libtensorflowlite_jni.so": 16384
+    },
+    "manifest_sample": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"org.tensorflow.lite\">\n\n    <!-- TFLite Java Library is built against NDK API 21. -->\n    <uses-sdk\n        android:minSdkVersion=\"21\" />\n\n    <application />\n\n</manifest>\n"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "apk": "app-debug.apk",
+  "bytes": 153456660,
+  "sha256": "3ef70b5af19578417cda0163a6b42632dd52b93faaf81709347dbb9fe209dfba",
+  "packaging_tests_passed": 6,
+  "apksigner": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: C=US, O=Android, CN=Android Debug\nSigner #1 certificate SHA-256 digest: 38987a7a0478b1f427912a0a7e3ab257401a51ad017c518c125ac9975fcd3913\nSigner #1 certificate SHA-1 digest: 31f529ef3328a0c600f9a1d45a5a931c16a51c43\nSigner #1 certificate MD5 digest: 3f8857fb1349e1d53f280f8a26e51bfb\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 76aef60c5795640b2772b147385b96fc26e1293c584b2c576e2d9f1db96927ee\nSigner #1 public key SHA-1 digest: a23c06de2b6159aa2423c439769bf54fd6a5fb1c\nSigner #1 public key MD5 digest: a7a520f9be58ba21f1a4eb39ccc6e2bb\n",
+  "zipalign_passed": true,
+  "badging": "package: name='org.safora.demo' versionCode='2' versionName='0.2' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'\nminSdkVersion:'26'\ntargetSdkVersion:'35'\nuses-permission: name='android.permission.RECORD_AUDIO'\nuses-permission: name='android.permission.FOREGROUND_SERVICE'\nuses-permission: name='android.permission.FOREGROUND_SERVICE_MICROPHONE'\nuses-permission: name='android.permission.POST_NOTIFICATIONS'\napplication-label:'SAFORA AI Demo'\napplication-icon-160:'res/drawable/safora_icon.xml'\napplication: label='SAFORA AI Demo' icon='res/drawable/safora_icon.xml'\napplication-debuggable\nlaunchable-activity: name='org.safora.demo.MainActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\n  uses-feature: name='android.hardware.microphone'\n  uses-implied-feature: name='android.hardware.microphone' reason='requested android.permission.RECORD_AUDIO permission'\nmain\nother-services\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--'\ndensities: '160'\nnative-code: 'arm64-v8a' 'armeabi-v7a' 'x86' 'x86_64'\n",
+  "android_runtime_tested_by_this_check": false,
+  "elf_min_load_alignment_bytes": {
+    "lib/arm64-v8a/libjnidispatch.so": 16384,
+    "lib/arm64-v8a/libtensorflowlite_jni.so": 16384,
+    "lib/arm64-v8a/libvosk.so": 16384,
+    "lib/armeabi-v7a/libjnidispatch.so": 16384,
+    "lib/armeabi-v7a/libtensorflowlite_jni.so": 16384,
+    "lib/armeabi-v7a/libvosk.so": 4096,
+    "lib/x86/libjnidispatch.so": 16384,
+    "lib/x86/libtensorflowlite_jni.so": 16384,
+    "lib/x86/libvosk.so": 4096,
+    "lib/x86_64/libjnidispatch.so": 16384,
+    "lib/x86_64/libtensorflowlite_jni.so": 16384,
+    "lib/x86_64/libvosk.so": 16384
+  },
+  "native_16kb_static_alignment_passed": true,
+  "notes": "Signature/asset/ZIP checks do not verify installation, ELF 16KB compatibility, microphone, ASR accuracy, or device behavior."
+}

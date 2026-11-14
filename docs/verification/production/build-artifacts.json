@@ -1,0 +1,29 @@
+{
+  "app-debug.apk": {
+    "bytes": 153456660,
+    "sha256": "3ef70b5af19578417cda0163a6b42632dd52b93faaf81709347dbb9fe209dfba",
+    "jar_signature_files": [],
+    "notices": [
+      "assets/MODEL-NOTICES.txt",
+      "assets/RUNTIME-NOTICES.txt"
+    ]
+  },
+  "app-release-unsigned.apk": {
+    "bytes": 151332920,
+    "sha256": "18f2a7f91475b89b34ae27e8f7a5604603f52d03699ec08b08b3bb832cc8d239",
+    "jar_signature_files": [],
+    "notices": [
+      "assets/MODEL-NOTICES.txt",
+      "assets/RUNTIME-NOTICES.txt"
+    ]
+  },
+  "app-release.aab": {
+    "bytes": 111097768,
+    "sha256": "8a5be5f4791dfb599006f4a88534e83bdb93a1f0d2004cd4b82a298a30c249de",
+    "jar_signature_files": [],
+    "notices": [
+      "base/assets/MODEL-NOTICES.txt",
+      "base/assets/RUNTIME-NOTICES.txt"
+    ]
+  }
+}

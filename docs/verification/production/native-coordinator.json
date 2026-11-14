@@ -1,0 +1,91 @@
+{
+  "workload": "host CPU; paced synthetic speech; not live capture",
+  "accuracy_evaluated": false,
+  "python_version": "3.12.14",
+  "wall_seconds": 8.57814856800178,
+  "process_cpu_seconds": 7.839782412000001,
+  "peak_process_rss_kb": 330004,
+  "languages": [
+    {
+      "language": "en",
+      "fixture_samples": 128000,
+      "padded_segment_samples": 128000,
+      "wall_seconds": 3.5785028650025197,
+      "context_cleared_before_language": true
+    },
+    {
+      "language": "hi",
+      "fixture_samples": 32637,
+      "padded_segment_samples": 128000,
+      "wall_seconds": 4.797875829000986,
+      "context_cleared_before_language": true
+    }
+  ],
+  "cues": [
+    {
+      "kind": "manual_sos_requested",
+      "source": "manual",
+      "uncertain": false,
+      "external_dispatch": false
+    }
+  ],
+  "counters": {
+    "speech_input_drops": 0,
+    "speech_input_dropped_samples": 0,
+    "cues": 0,
+    "callback_errors": 0,
+    "speech_segments": 2,
+    "nonempty_transcripts": 2,
+    "positive_risk_results": 0,
+    "risk_errors": 0,
+    "max_risk_seconds": 0.0021329660012270324,
+    "max_asr_seconds": 2.890838448998693,
+    "session": 1,
+    "running": true,
+    "coverage": "monitoring",
+    "context_turns": 1,
+    "speech_enabled": true,
+    "language": "hi",
+    "acoustic": {
+      "accepted_blocks": 160,
+      "processed_blocks": 160,
+      "dropped_blocks": 0,
+      "dropped_source_samples": 0,
+      "gaps": 0,
+      "windows": 31,
+      "inference_errors": 0,
+      "callback_errors": 0,
+      "discarded_on_stop": 0,
+      "queue_high_water": 1,
+      "max_inference_seconds": 0.004284996997739654,
+      "max_capture_to_decision_seconds": 0.029616608000651468,
+      "pending_blocks": 0,
+      "worker_alive": true
+    },
+    "asr": {
+      "accepted_chunks": 2,
+      "dropped_chunks": 0,
+      "dropped_samples": 0,
+      "discarded_chunks": 0,
+      "gaps": 2,
+      "results": 2,
+      "errors": 0,
+      "callback_errors": 0,
+      "unknown_language_chunks": 0,
+      "queue_high_water": 1,
+      "stale_results": 0,
+      "language": "hi",
+      "generation": 2,
+      "pending_chunks": 0,
+      "model_loaded": true,
+      "coverage": "enabled_with_possible_gaps",
+      "worker_alive": true
+    }
+  },
+  "stopped": true,
+  "model_bytes": {
+    "yamnet": 4126810,
+    "en": 70900373,
+    "hi": 82085649
+  }
+}
