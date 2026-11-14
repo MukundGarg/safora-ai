@@ -39,6 +39,8 @@ class DecisionEngine(private val sink: IncidentSink, private val cooldownMs: Lon
         last = now; activeLevel = level
         sink.onRisk(RiskEvent(++sequence, level, reason, manual, sessionId, now))
     }
+    /** Task 4 entry point: all ML results are uncertain local check-ins only. */
+    fun monitoringCue(now:Long,source:String) = emit(now,1,"monitoring_check_in:"+source)
     fun acoustic(now: Long) = emit(now, 2, "temporally_confirmed_scream")
     fun conversation(now: Long, risk: ConversationRisk) {
         if (risk.labels.isEmpty() || risk.labels == setOf("neutral_or_uncertain")) return

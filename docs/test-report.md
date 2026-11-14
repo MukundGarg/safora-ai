@@ -215,3 +215,18 @@ work. No verified labeled risk data/base checkpoint was supplied; training and
 export correctly report blocked. No genuine risk weights/ONNX artifact or measured
 risk precision/recall/F1 were produced. Heuristic output remains uncertain and
 explicitly unvalidated; numerical/unit fixtures are not learned-model evaluation.
+
+## Task 4 final integration — 14 November 2026
+
+**147 Python passed,22 Kotlin JVM passed,0 failed/skipped.** Debug app and
+instrumentation APKs built; lint0errors/12warnings;4APK package checks/signature/ZIP
+alignment passed. Task 4 APK was **not run on Android**: emulator startup failed
+disk-space checks. Native64-bit ELF16KB readiness still fails static alignment.
+Real local YAMNet and EN/HI Vosk ran through the new Python coordinator; both
+synthetic speech segments decoded, but selected no positive heuristic labels.
+No labeled safety/ASR/risk accuracy or genuine learned-risk model exists. See
+[final handoff](member2-final-handoff.md) and [final test report](member2-final-test-report.md)
+for precise failures/fixes, resource observations, artifact hash and remaining
+physical-device/data work. Current ML events are uncertain local check-ins only;
+manual SOS stays independent. Historical emulator results above apply to the old
+artifact only. No teammate UI/contacts/firmware or external dispatch was changed.

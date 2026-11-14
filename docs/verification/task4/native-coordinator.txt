@@ -1,0 +1,2 @@
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Local native coordinator smoke passed; no transcript text or accuracy exported.

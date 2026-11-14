@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "monitoring_only": true,
+  "source_sample_rate": 16000,
+  "max_capture_block_samples": 1600,
+  "conversation_enabled_default": false,
+  "unknown_language_disables_asr": true,
+  "python_acoustic_queue_capacity": 4,
+  "kotlin_acoustic_queue_capacity": 2,
+  "speech_input_queue_capacity": 2,
+  "speech_segment_samples": 128000,
+  "energy_vad_rms_threshold": 0.008,
+  "context_max_turns": 4,
+  "context_ttl_seconds": 30,
+  "check_in_cooldown_seconds": 10,
+  "risk_backend": "UNVALIDATED_HEURISTIC"
+}
