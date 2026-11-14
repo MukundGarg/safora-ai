@@ -7,6 +7,10 @@ Real pretrained YAMNet and offline English/Hindi Vosk ASR models are provisioned
 and bundled in the debug APK. English/Hindi models are separate; code-switching
 and real-world safety/ASR accuracy are not established.
 
+Current integration/handoff: [Member 2 final handoff](docs/member2-final-handoff.md)
+and [final test report](docs/member2-final-test-report.md). Task 4 builds/tests pass,
+but its changed APK has not run on Android; emulator startup was disk-blocked.
+
 ## Build and install Android
 
 Install Android SDK35/build-tools35.0.0/platform-tools and JDK17 or compatible newer
@@ -31,8 +35,8 @@ Open the app, allow local notifications, select English or Hindi, opt in to visi
 microphone monitoring and press Start. The app starts in Lite while the resource
 controller observes capacity; Standard/Enhanced enable optional ASR. Eight-second
 VAD-gated speech chunks run independently of scream scores. Level1 creates a
-local check-in; confirmed acoustic events and manual SOS request local incident
-verification. **No contacts are notified**, including on manual SOS. Stop/pause and
+local check-in; Task 4 acoustic and conversation cues also remain uncertain local
+check-ins. Only independent manual SOS requests local incident verification. **No contacts are notified**, including on manual SOS. Stop/pause and
 manual SOS remain available. Monitoring coverage and performance counters are
 visible. Export anonymous metrics explicitly with the app's export button.
 
@@ -123,3 +127,11 @@ path are documented in [risk-task3-report](docs/risk-task3-report.md). No genuin
 risk dataset/checkpoint was supplied; no learned model was trained or exported.
 See the [taxonomy](docs/risk-taxonomy.md), [data protocol](docs/risk-training-data.md)
 and [Kotlin handoff contract](docs/risk-integration-contract.md).
+
+## Task 4 shared ML coordination
+
+Use Python `MLCoordinator` or Kotlin `MlController` with one existing microphone.
+Independent bounded acoustic/speech workers, explicit language and lifecycle,
+uncertainty/provenance and monitoring-only check-ins are integrated. See the final
+handoff for code examples, asset provisioning, runnable smoke paths and unverified
+device/data requirements. No trained risk weights or automatic dispatch are added.

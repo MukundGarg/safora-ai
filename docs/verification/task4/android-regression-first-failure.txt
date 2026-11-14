@@ -1,0 +1,127 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :app
+Unable to initialize metrics, ensure /home/agent/.android is writable, details: /home/agent/.android/analytics.settings (No such file or directory)
+
+> Task :safora-ai-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :safora-ai-core:preBuild UP-TO-DATE
+> Task :safora-ai-core:preDebugBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugResValues
+> Task :safora-ai-core:generateDebugResources
+> Task :safora-ai-core:packageDebugResources
+> Task :safora-ai-core:javaPreCompileDebug
+> Task :safora-ai-core:preDebugUnitTestBuild UP-TO-DATE
+> Task :safora-ai-core:javaPreCompileDebugUnitTest
+> Task :safora-ai-core:parseDebugLocalResources
+> Task :app:verifyOfflineAssets
+> Task :app:preBuild
+> Task :app:preDebugBuild
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :safora-ai-core:writeDebugAarMetadata
+> Task :safora-ai-core:generateDebugRFile
+> Task :app:checkDebugAarMetadata
+> Task :safora-ai-core:generateDebugUnitTestStubRFile
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :safora-ai-core:extractDeepLinksDebug
+> Task :safora-ai-core:processDebugManifest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :safora-ai-core:compileDebugLibraryResources
+> Task :app:processDebugResources
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :safora-ai-core:mergeDebugShaders
+> Task :safora-ai-core:compileDebugShaders NO-SOURCE
+> Task :safora-ai-core:generateDebugAssets UP-TO-DATE
+> Task :safora-ai-core:packageDebugAssets
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeExtDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :safora-ai-core:mergeDebugJniLibFolders
+> Task :safora-ai-core:mergeDebugNativeLibs NO-SOURCE
+> Task :safora-ai-core:copyDebugJniLibsProjectOnly
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libjnidispatch.so, libtensorflowlite_jni.so, libvosk.so.
+
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:checkDebugAndroidTestAarMetadata
+> Task :app:generateDebugAndroidTestResValues
+> Task :app:mapDebugAndroidTestSourceSetPaths
+> Task :app:generateDebugAndroidTestResources
+> Task :app:mergeDebugAndroidTestResources
+> Task :app:processDebugAndroidTestManifest
+> Task :app:processDebugAndroidTestResources
+> Task :app:javaPreCompileDebugAndroidTest
+> Task :app:mergeDebugAndroidTestShaders
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :app:mergeDebugAndroidTestAssets
+> Task :app:compressDebugAndroidTestAssets
+> Task :app:desugarDebugAndroidTestFileDependencies
+> Task :app:checkDebugAndroidTestDuplicateClasses
+> Task :app:mergeExtDexDebugAndroidTest
+> Task :app:mergeDebugAndroidTestJniLibFolders
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebugAndroidTest
+> Task :app:writeDebugAndroidTestSigningConfigVersions
+> Task :safora-ai-core:stripDebugDebugSymbols NO-SOURCE
+> Task :safora-ai-core:copyDebugJniLibsProjectAndLocalJars
+> Task :safora-ai-core:extractDeepLinksForAarDebug
+> Task :safora-ai-core:prepareDebugArtProfile
+> Task :safora-ai-core:prepareLintJarForPublish
+> Task :safora-ai-core:writeDebugLintModelMetadata
+> Task :app:extractProguardFiles
+> Task :safora-ai-core:extractProguardFiles
+> Task :app:preDebugUnitTestBuild
+> Task :safora-ai-core:preDebugAndroidTestBuild UP-TO-DATE
+> Task :safora-ai-core:generateDebugAndroidTestResValues
+> Task :safora-ai-core:compileDebugKotlin
+> Task :safora-ai-core:compileDebugJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:bundleLibRuntimeToJarDebug
+> Task :safora-ai-core:bundleLibCompileToJarDebug
+> Task :safora-ai-core:processDebugJavaRes
+> Task :safora-ai-core:compileDebugUnitTestKotlin
+> Task :safora-ai-core:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :safora-ai-core:processDebugUnitTestJavaRes
+
+> Task :safora-ai-core:testDebugUnitTest
+
+MlControllerTest > immediateLanguageSwitchLoadsNewModelAndClearsOldWork FAILED
+    java.lang.AssertionError at MlControllerTest.kt:92
+
+21 tests completed, 1 failed
+
+> Task :safora-ai-core:testDebugUnitTest FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':safora-ai-core:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///workspace/safora-ai/android/safora-ai-core/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 1m 3s
+75 actionable tasks: 75 executed

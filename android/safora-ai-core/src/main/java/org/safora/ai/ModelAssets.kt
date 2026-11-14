@@ -9,6 +9,10 @@ import java.security.MessageDigest
 import java.util.zip.ZipInputStream
 
 object ModelAssets {
+    private val requiredVosk=listOf("am/final.mdl","conf/model.conf","conf/mfcc.conf",
+        "graph/HCLr.fst","graph/Gr.fst","graph/disambig_tid.int","graph/phones/word_boundary.int",
+        "ivector/final.ie","ivector/final.dubm","ivector/final.mat","ivector/global_cmvn.stats","ivector/splice.conf")
+    private fun complete(dir:File)=requiredVosk.all { File(dir,it).let { file -> file.isFile && file.length()>0 } }
     fun metadata(context: Context)=JSONObject(context.assets.open("model-assets.json").bufferedReader().use { it.readText() })
     fun validateYamnet(context: Context) {
         val expected=metadata(context).getJSONObject("yamnet").getString("sha256")
@@ -27,7 +31,7 @@ object ModelAssets {
         val expected=metadata.getString("sha256")
         val parent=File(context.filesDir,"models").apply { mkdirs() }
         val target=File(parent,"vosk-$language-${expected.take(12)}")
-        if(File(target,".ready").readTextOrNull()==expected) return target
+        if(File(target,".ready").readTextOrNull()==expected && complete(target)) return target
         val temp=File(parent,target.name+".partial").apply { deleteRecursively();mkdirs() }
         try {
             val digest=MessageDigest.getInstance("SHA-256")
@@ -61,7 +65,7 @@ object ModelAssets {
                     zip.closeEntry()
                 }
             }
-            check(File(temp,"am/final.mdl").isFile && File(temp,"conf/model.conf").isFile) { "Incomplete Vosk model" }
+            check(complete(temp)) { "Incomplete Vosk model" }
             File(temp,".ready").writeText(expected)
             target.deleteRecursively();check(temp.renameTo(target)) { "Model publication failed" }
             return target

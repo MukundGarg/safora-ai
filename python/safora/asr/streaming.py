@@ -196,6 +196,18 @@ class StreamingASR:
                 try:chunk=self.queue.get(timeout=.05)
                 except queue.Empty:continue
                 try:
+                    # Controls may change while get() waits. Adopt the new state
+                    # before consuming its first chunk instead of silently losing it.
+                    if self._current(chunk.generation) and chunk.generation!=applied:
+                        with self._condition:generation,language,reload=self._generation,self._language,self._reload
+                        if adapter is not None:
+                            if loaded_language!=language or reload>applied:
+                                adapter.close();adapter=None;loaded_language=None
+                            else:adapter.reset()
+                        active=False;expected=None;processing=0.;applied=generation
+                        with self._condition:
+                            self._applied=generation;self._loaded=adapter is not None;self._error=None
+                            self._condition.notify_all()
                     if not self._current(chunk.generation) or chunk.generation!=applied:continue
                     if adapter is None:
                         adapter=self.factory(language);loaded_language=language

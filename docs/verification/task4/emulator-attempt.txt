@@ -1,0 +1,16 @@
+INFO         | Android emulator version 37.3.9.0 (build_id 16863232) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /workspace/work/android-sdk/system-images/android-26/default/x86_64/
+INFO         | Changing default hw.initialOrientation to portrait
+
+INFO         | Increasing RAM size to 1536MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swiftshader
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Error: Your device does not have enough disk space to run avd: `safora26`
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Warning: AVD 'safora26' will run more smoothly with 4 CPU cores (currently using 3)
+FATAL        | Your device does not have enough disk space to run avd: `safora26`.
