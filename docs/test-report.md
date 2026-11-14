@@ -204,3 +204,14 @@ Hinglish accuracy are unavailable. Task 2 did not run a changed APK on Android;
 prior APK/emulator evidence above applies to the earlier artifact. Independent
 Android ASR queue/lifecycle/clock integration and physical low-RAM phone tests
 remain outstanding. Conversation classifier status remains untrained/unvalidated.
+
+## Task 3 risk-classifier follow-up — 14 November 2026
+
+**138 Python passed, 0 failed/skipped; 14 Kotlin JVM passed, 0 failed/skipped.**
+Task 1/2 tests and native host-model smoke remain passing. Android sources/UI and
+acoustic/ASR modules are unchanged; no Task 3 APK/device run occurred. See
+[Task 3 report](risk-task3-report.md) for logs, precise caveats and remaining Task 4
+work. No verified labeled risk data/base checkpoint was supplied; training and
+export correctly report blocked. No genuine risk weights/ONNX artifact or measured
+risk precision/recall/F1 were produced. Heuristic output remains uncertain and
+explicitly unvalidated; numerical/unit fixtures are not learned-model evaluation.

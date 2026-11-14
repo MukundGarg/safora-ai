@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SAFORA risk-v2 permission-attested row",
+  "type": "object",
+  "required": ["text", "context", "labels", "language", "source_id", "session_id", "split", "license", "provenance"],
+  "$defs": {
+    "labels": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"enum": ["sexual_coercion", "explicit_threat", "refusal_ignored", "unwanted_sexual_advance", "secrecy_pressure", "isolation_pressure", "distress_expression", "neutral_or_uncertain"]},
+      "if": {"contains": {"const": "neutral_or_uncertain"}},
+      "then": {"maxItems": 1}
+    },
+    "identifier": {"type": "string", "minLength": 1}
+  },
+  "properties": {
+    "text": {"type": "string", "minLength": 1, "maxLength": 2048},
+    "context": {"type": "array", "maxItems": 4, "items": {"type": "string", "maxLength": 2048}},
+    "labels": {"$ref": "#/$defs/labels"},
+    "language": {"enum": ["en", "hi", "romanized_hi", "hinglish", "unknown"]},
+    "source_id": {"$ref": "#/$defs/identifier"},
+    "session_id": {"$ref": "#/$defs/identifier"},
+    "id": {"$ref": "#/$defs/identifier"},
+    "group_id": {"$ref": "#/$defs/identifier"},
+    "split": {"enum": ["train", "validation", "test"]},
+    "license": {"$ref": "#/$defs/identifier"},
+    "provenance": {
+      "type": "object", "required": ["verified", "origin", "reviewed_by", "permission_basis"],
+      "properties": {"verified": {"const": true}, "origin": {"$ref": "#/$defs/identifier"}, "reviewed_by": {"$ref": "#/$defs/identifier"}, "permission_basis": {"$ref": "#/$defs/identifier"}}
+    },
+    "hard_negative": {"type": "boolean"},
+    "annotations": {
+      "type": "array", "items": {"type": "object", "required": ["annotator_id", "status", "labels"], "properties": {"annotator_id": {"$ref": "#/$defs/identifier"}, "status": {"enum": ["reviewed", "adjudicated"]}, "labels": {"$ref": "#/$defs/labels"}}}
+    }
+  },
+  "description": "Runtime validator additionally enforces Unicode, total context length, permission review strings, annotation agreement, hard-negative consistency, duplicate and source/session/group isolation across the entire JSONL. Schema validity does not prove permission or label quality."
+}

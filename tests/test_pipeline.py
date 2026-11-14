@@ -44,3 +44,20 @@ class PipelineTests(unittest.IsolatedAsyncioTestCase):
         finally:
             release.set();capture.cancel();speech.cancel()
             await asyncio.gather(capture,speech,return_exceptions=True)
+
+    async def test_history_retains_asr_uncertainty_for_risk_classifier(self):
+        from safora.classifier.text import Turn
+        class ASR:
+            def transcribe(self,x):return Transcript('I said no',True,'en',-10)
+        class Classifier:
+            def classify(self,text,history,uncertain):
+                self.uncertain=uncertain;self.history=history
+                from safora.classifier.risk import Risk
+                return Risk({'neutral_or_uncertain'})
+        classifier=Classifier();p=Pipeline(None,ASR(),classifier,DecisionEngine(),lambda e:None)
+        worker=asyncio.create_task(p.speech_worker())
+        try:
+            for _ in range(2):await p.speech.put(np.zeros(16));await p.speech.join()
+            self.assertTrue(classifier.uncertain);self.assertIsInstance(classifier.history[0],Turn)
+            self.assertTrue(classifier.history[0].asr_uncertain)
+        finally:worker.cancel();await asyncio.gather(worker,return_exceptions=True)
