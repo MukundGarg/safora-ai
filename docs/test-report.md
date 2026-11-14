@@ -191,3 +191,16 @@ APK, instrumented-test APK, source ZIP, integration/test reports and checksums,
 without private recordings, signing keys or fabricated trained safety weights.
 The writable export directory for this task is `/workspace/output/`; it replaces
 the read-only download directory encountered during the initial implementation.
+
+## Task 2 ASR follow-up — 14 November 2026
+
+Task 2 host regressions: **104 Python passed (0 failed/skipped)** including all
+Task 1 tests and real local English/Hindi Vosk, YAMNet and optional Whisper smoke;
+**14 Kotlin JVM tests passed (0 failed/skipped)** and core sources compiled.
+See [Task 2 report](asr-task2-report.md) for commands, model hashes, logs, contract
+and remaining work. English/Hindi synthetic speech produced nonempty final
+transcripts; no representative labeled ASR corpus was supplied, so WER/CER and
+Hinglish accuracy are unavailable. Task 2 did not run a changed APK on Android;
+prior APK/emulator evidence above applies to the earlier artifact. Independent
+Android ASR queue/lifecycle/clock integration and physical low-RAM phone tests
+remain outstanding. Conversation classifier status remains untrained/unvalidated.
