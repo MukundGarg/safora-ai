@@ -9,13 +9,17 @@ import numpy as np
 from safora.audio.stream import Yamnet
 from safora.asr.offline import VoskASR
 from safora.coordinator import MLCoordinator
+from safora.asr.assets import validate_prepared_model
 
 
 def run(yamnet,models,fixtures):
     results=[];cues=[]
+    specs=json.loads((Path(__file__).resolve().parents[1]/'models/android-assets.json').read_text())['vosk']
     def factory(language):
         root=Path(models[language]);receipt=json.loads((root/'.safora-model.json').read_text())
-        return VoskASR(root,language,file_checksums=receipt['file_sha256'])
+        validate_prepared_model(root,specs[language])
+        if receipt['archive_sha256']!=specs[language]['sha256']:raise ValueError('Model provenance mismatch')
+        return VoskASR(root,language,file_checksums={name:item['sha256'] for name,item in specs[language]['files'].items()})
     coordinator=MLCoordinator(lambda:Yamnet(yamnet),factory,on_cue=lambda c:cues.append(dict(kind=c.kind,source=c.source,
         uncertain=c.uncertain,external_dispatch=c.external_dispatch)),speech_enabled=True)
     wall=time.perf_counter();cpu=time.process_time()

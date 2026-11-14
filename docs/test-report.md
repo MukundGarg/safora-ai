@@ -230,3 +230,15 @@ for precise failures/fixes, resource observations, artifact hash and remaining
 physical-device/data work. Current ML events are uncertain local check-ins only;
 manual SOS stays independent. Historical emulator results above apply to the old
 artifact only. No teammate UI/contacts/firmware or external dispatch was changed.
+
+## Reconciled production-gate follow-up — 14 November 2026
+
+Actual main lacked Tasks 2–4 despite merged stacked PR badges; recovery preserves
+ancestry on a new feature branch (see repository-reconciliation.md). Recovered tree
+reran147Python/22Kotlin. Hardened tree:160Python/27Kotlin,0failed/skipped;6APK checks
+and signed-debug ZIP/native64-bit16KB static gates pass with newer verified runtimes.
+Debug/instrumentation and unsigned release APK/AAB build; lint0errors/12warnings.
+No Android runtime/device/wearable test executed: emulator startup is disk-blocked.
+No representative accuracy improvement or genuine trained/exported risk weights.
+Current evidence/gate owners/signoff blockers are in production-readiness.md; old
+artifact hashes/results above remain historical. NOT PRODUCTION-QUALIFIED.

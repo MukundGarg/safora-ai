@@ -23,3 +23,8 @@ output/
 
 *.keystore
 *.jks
+
+/android/app/src/main/assets/RUNTIME-NOTICES.txt
+
+*.safetensors
+/private-data/

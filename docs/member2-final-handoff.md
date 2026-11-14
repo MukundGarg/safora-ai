@@ -274,3 +274,26 @@ Prioritized next work:
    held-out evaluation and numerical/tokenizer parity should a learned risk adapter
    be considered. Current torch/transformers/onnx/onnxruntime/base/data blockers
    remain. No request to merge or promote a production safety model is made.
+
+## Reconciliation / qualification follow-up — 14 November 2026
+
+Tasks 2–4 were restored into a feature branch from actual current main after stacked
+merges landed only on earlier feature bases. See `repository-reconciliation.md`;
+main is still subject to the new PR review. Current delivery supersedes the old
+native-library static-alignment blocker above: LiteRT1.4.2/Vosk Android0.3.75/
+JNA5.18.1 now pass64-bit ELF/ZIP16KB static checks, but **not actual device runtime**.
+New model catalog schema2 records version IDs/all extracted-file hashes; ModelAssets
+checks cached content, storage and bounded cleanup. Retry backoff1–30s prevents
+failed models from loading every block; unavailable input is discarded, not replayed.
+`MlState.coverage()` exposes per-feature AVAILABLE/DEGRADED/UNAVAILABLE with
+`safetyValidated=false`; app owner should surface these hooks without treating
+availability as accuracy. Explicit manual SOS remains independent.
+
+For current160Python/27Kotlin results, release APK/AAB/debug builds, signed debug
+hash and remaining runtime/data/hardware gates use `production-readiness.md`,
+`model-inventory.md`, `model-evaluation-report.md` and `wearable-android-integration.md`.
+No UI/contact/firmware changes, wearable stack, trained risk checkpoint, accuracy
+increase or physical-device validation is claimed. Old Task 4 hashes/timings above
+remain historical, not current qualification evidence. Final state remains
+NOT PRODUCTION-QUALIFIED. Provision assets before Gradle; the new --offline path
+fails rather than fetching missing data/models at runtime.

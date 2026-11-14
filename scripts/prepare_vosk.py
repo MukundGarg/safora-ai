@@ -1,7 +1,7 @@
 """Explicit development provisioning; inference itself never fetches assets."""
 import argparse,json,sys,urllib.request
 from pathlib import Path
-from safora.asr.assets import prepare_model,validate_archive,validate_model_dir
+from safora.asr.assets import prepare_model,validate_archive,validate_model_dir,validate_prepared_model
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     if a.validate_only:
         receipt=json.loads((a.output/'.safora-model.json').read_text())
         if receipt['archive_sha256']!=spec['sha256']:raise ValueError('Prepared model provenance mismatch')
-        validate_model_dir(a.output,receipt['file_sha256'])
+        validate_prepared_model(a.output,spec)
         print('Prepared local model validated:',a.language);return
     if not a.archive.exists():
         if not a.download:raise FileNotFoundError('Archive absent; pass --download explicitly to provision')

@@ -71,6 +71,14 @@ def validate_archive(path, spec):
             name = prefix + relative
             if name not in names or archive.getinfo(name).file_size == 0:
                 raise ValueError('Incomplete Vosk archive: ' + relative)
+        if spec.get('files'):
+            for relative, expected in spec['files'].items():
+                info=archive.getinfo(prefix+relative)
+                if info.file_size!=expected['bytes']:raise ValueError('Extracted model size mismatch')
+                digest=hashlib.sha256()
+                with archive.open(info) as stream:
+                    while block:=stream.read(65536):digest.update(block)
+                if digest.hexdigest()!=expected['sha256']:raise ValueError('Extracted model SHA256 mismatch')
         if archive.testzip() is not None:
             raise ValueError('Corrupt Vosk archive')
 
@@ -106,3 +114,13 @@ def prepare_model(archive_path, output, spec):
         }, indent=2) + '\n')
         stage.rename(output)
     return output
+
+
+def validate_prepared_model(path, spec):
+    """Authenticate a prepared directory against pinned artifact metadata, not its own receipt."""
+    files=spec.get('files')
+    if not files:raise ValueError('Pinned per-file artifact manifest required')
+    root=validate_model_dir(path,{name:item['sha256'] for name,item in files.items()})
+    if any((root/name).stat().st_size!=item['bytes'] for name,item in files.items()):
+        raise ValueError('Prepared model size mismatch')
+    return root

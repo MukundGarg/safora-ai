@@ -1,0 +1,1 @@
+Local English/Hindi model smoke completed; transcript text and accuracy metrics are not exported.

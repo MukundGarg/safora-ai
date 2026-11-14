@@ -61,7 +61,7 @@ class MlController(private val acousticFactory:()->AcousticBackend,
     fun start(permission:Boolean=true,optedIn:Boolean=true):Boolean = synchronized(gate) {
         check(!running.get() && workers.none { it.isAlive }) { "Stop/join previous native work before resume" }
         if(!permission || !optedIn) { status(if(!permission) "permission_denied" else "opted_out");return@synchronized false }
-        session++;epoch++;audioEpoch++;controlGeneration=epoch;next=0;lastCue=Long.MIN_VALUE/2;running.set(true)
+        session++;epoch++;audioEpoch++;controlGeneration=epoch;next=0;acousticDrops=0;speechDrops=0;errors=0;lastCue=Long.MIN_VALUE/2;running.set(true)
         clear(audio);clear(speech)
         workers=listOf(Thread({ acousticLoop() },"safora-acoustic"),Thread({ speechLoop() },"safora-speech"))
         workers.forEach { it.start() };true
@@ -98,13 +98,14 @@ class MlController(private val acousticFactory:()->AcousticBackend,
     private fun acousticLoop() {
         var model:AcousticBackend?=null
         val ring=AudioRing();val detector=TemporalDetector();var expected=-1L;var token=-1L;var previousEnd=0L
-        val id=synchronized(gate) { session }
+        val id=synchronized(gate) { session };var retryAt=Long.MIN_VALUE;var retryMs=1000L
         try {
             while(running.get()) {
                 val b=audio.poll(50,TimeUnit.MILLISECONDS) ?: continue
                 acousticBusy=true
                 try {
-                    if(model==null) { model=acousticFactory();acousticReady=true;status("acoustic_ready_monitoring_only") }
+                    if(model==null && nanoClock()<retryAt) continue
+                    if(model==null) { model=acousticFactory();retryMs=1000L;acousticReady=true;status("acoustic_ready_monitoring_only") }
                     if(b.start!=expected || b.captureEpoch!=token) { ring.clear(b.start);detector.resetContinuity() }
                     expected=b.start+b.pcm.size;token=b.captureEpoch
                     ring.add(b.pcm,b.pcm.size) { samples,time ->
@@ -122,6 +123,7 @@ class MlController(private val acousticFactory:()->AcousticBackend,
                     synchronized(gate) { errors++ };status("acoustic_unavailable_manual_sos_independent")
                     ring.clear(expected.coerceAtLeast(0));detector.resetContinuity()
                     try { model?.close() } catch(_:Exception) {};model=null;acousticReady=false
+                    retryAt=nanoClock()+retryMs*1000000;retryMs=(retryMs*2).coerceAtMost(30000)
                 } finally { b.pcm.fill(0);acousticBusy=false;audioPending.decrementAndGet() }
             }
         } finally { try { model?.close() } catch(_:Exception) {};ring.clear();acousticReady=false }
@@ -130,13 +132,16 @@ class MlController(private val acousticFactory:()->AcousticBackend,
         var model:SpeechRecognizer?=null;var selected:String?=null;var token=-1L;var expected=-1L
         val buffer=FloatArray(segmentSamples);var size=0
         val history=ArrayDeque<Pair<Long,RiskTurn>>()
-        val classifier=MonitoringRules()
+        val classifier=MonitoringRules();var retryAt=Long.MIN_VALUE;var retryMs=1000L
+        var retrySelection:Pair<Boolean,String?>?=null
         val id=synchronized(gate) { session }
         try {
             while(running.get()) {
                 var state=synchronized(gate) { Triple(epoch,enabled,language) }
                 if(state.first!=token) {
                     history.clear();buffer.fill(0f);size=0;expected=-1
+                    val selection=state.second to state.third
+                    if(selection!=retrySelection) { retryAt=Long.MIN_VALUE;retryMs=1000L;retrySelection=selection }
                     if(!state.second || state.third!=selected) {
                         try { model?.close() } catch(_:Exception) {};model=null;selected=null;speechReady=false
                     }
@@ -150,6 +155,8 @@ class MlController(private val acousticFactory:()->AcousticBackend,
                     state=synchronized(gate) { Triple(epoch,enabled,language) }
                     if(state.first!=token) {
                         history.clear();buffer.fill(0f);size=0;expected=-1
+                    val selection=state.second to state.third
+                    if(selection!=retrySelection) { retryAt=Long.MIN_VALUE;retryMs=1000L;retrySelection=selection }
                         if(!state.second || state.third!=selected) {
                             try { model?.close() } catch(_:Exception) {};model=null;selected=null;speechReady=false
                         }
@@ -158,7 +165,8 @@ class MlController(private val acousticFactory:()->AcousticBackend,
                     if(!state.second || state.third==null || b.epoch!=token || token!=controlGeneration) continue
                     if(b.start!=expected) { history.clear();buffer.fill(0f);size=0 }
                     expected=b.start+b.pcm.size
-                    if(model==null) { model=speechFactory(state.third!!);selected=state.third;speechReady=true;status("speech_ready_unvalidated_"+selected) }
+                    if(model==null && nanoClock()<retryAt) continue
+                    if(model==null) { model=speechFactory(state.third!!);retryMs=1000L;selected=state.third;speechReady=true;status("speech_ready_unvalidated_"+selected) }
                     if(token!=controlGeneration) continue
                     for(i in b.pcm.indices) {
                         buffer[size++]=b.pcm[i]/32768f
@@ -179,10 +187,12 @@ class MlController(private val acousticFactory:()->AcousticBackend,
                             buffer.fill(0f);size=0
                         }
                     }
-                } catch(_:Exception) {
-                    synchronized(gate) { errors++ };status("speech_unavailable_acoustic_independent")
+                } catch(error:Exception) {
+                    synchronized(gate) { errors++ }
+                    status(if(error.message=="model_storage_unavailable") "speech_model_storage_unavailable" else "speech_unavailable_acoustic_independent")
                     try { model?.close() } catch(_:Exception) {};model=null;selected=null;speechReady=false
                     history.clear();buffer.fill(0f);size=0
+                    retryAt=nanoClock()+retryMs*1000000;retryMs=(retryMs*2).coerceAtMost(30000)
                 } finally { b.pcm.fill(0);speechBusy=false;speechPending.decrementAndGet() }
             }
         } finally { try { model?.close() } catch(_:Exception) {};buffer.fill(0f);history.clear();speechReady=false }

@@ -1,0 +1,20 @@
+{
+  "com.alphacephei:vosk-android:0.3.75": {
+    "sha256": [
+      "ab2f8b91ac8051561aa325546b35fed9a68b36b8121bac5c6fb927525c4adfad"
+    ],
+    "matches_independently_downloaded_artifact": true
+  },
+  "net.java.dev.jna:jna:5.18.1": {
+    "sha256": [
+      "7f053e3ec99e14dd71259c82c1c8a02738d64a13c31226b2acc170f3060951e0"
+    ],
+    "matches_independently_downloaded_artifact": true
+  },
+  "com.google.ai.edge.litert:litert:1.4.2": {
+    "sha256": [
+      "9b02cdf9db0a698b341b59e75c54ab8221d6304577cc43830d01024caf1fca74"
+    ],
+    "matches_independently_downloaded_artifact": true
+  }
+}

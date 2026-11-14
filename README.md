@@ -135,3 +135,14 @@ Independent bounded acoustic/speech workers, explicit language and lifecycle,
 uncertainty/provenance and monitoring-only check-ins are integrated. See the final
 handoff for code examples, asset provisioning, runnable smoke paths and unverified
 device/data requirements. No trained risk weights or automatic dispatch are added.
+
+## Reconciled main-line hardening and release gates
+
+See [repository reconciliation](docs/repository-reconciliation.md),
+[model inventory](docs/model-inventory.md), [evaluation report](docs/model-evaluation-report.md)
+and [production readiness](docs/production-readiness.md). The newer branch recovers
+Tasks 2–4 into actual main lineage and adds pinned file-level model integrity,
+offline/idempotent preparation, native64-bit static16KB compatibility, truthful
+coverage states and strong-annotation/leakage/experiment tooling. Accuracy gains
+are NOT MEASURED; wearable/device qualification and genuine learned risk remain
+blocked. **NOT PRODUCTION-QUALIFIED**; no automatic dispatch or PR merge.
