@@ -72,7 +72,7 @@ The four supplied recording summaries are not population accuracy evidence.
 ```bash
 pip install -e '.[training]'
 python -m safora.training.train --base /local/multilingual-encoder --data licensed.jsonl --output models/risk
-python scripts/export_encoder.py models/risk models/risk-int8.onnx
+python scripts/export_encoder.py models/risk models/risk-onnx --probes /local/authorized-parity-probes.json
 ```
 
 No licensed labeled safety dataset was supplied, so no risk encoder was trained.
@@ -114,3 +114,12 @@ manifest evaluator are described in [asr-task2-report](docs/asr-task2-report.md)
 See [Android ASR contract](docs/asr-android-contract.md) for the core handoff and
 remaining app integration. Host-native smoke tests do not establish phone behavior
 or speech-recognition accuracy.
+
+## Task 3 conversation-risk hardening
+
+The bounded offline classifier API, explicitly unvalidated multilingual rules,
+permission-attested training schema, validation-only thresholds and guarded ONNX
+path are documented in [risk-task3-report](docs/risk-task3-report.md). No genuine
+risk dataset/checkpoint was supplied; no learned model was trained or exported.
+See the [taxonomy](docs/risk-taxonomy.md), [data protocol](docs/risk-training-data.md)
+and [Kotlin handoff contract](docs/risk-integration-contract.md).

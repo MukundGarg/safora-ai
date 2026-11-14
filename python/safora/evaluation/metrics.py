@@ -26,13 +26,19 @@ def event_metrics(predicted,truth,negative_hours,tolerance=1.):
     return result
 
 def multilabel_metrics(truth,predicted,labels):
+    if len(truth)!=len(predicted):raise ValueError('Truth/prediction length mismatch')
+    if any(not set(values)<=set(labels) for values in [*truth,*predicted]):raise ValueError('Unknown evaluation label')
     result={}
     for label in labels:
         tp=sum(label in a and label in b for a,b in zip(truth,predicted))
         fp=sum(label not in a and label in b for a,b in zip(truth,predicted))
         fn=sum(label in a and label not in b for a,b in zip(truth,predicted))
-        tn=sum(label not in a and label not in b for a,b in zip(truth,predicted))
-        result[label]={**prf(tp,fp,fn),'confusion_matrix':[[tn,fp],[fn,tp]]}
+        tn=len(truth)-tp-fp-fn
+        result[label]={'precision':tp/(tp+fp) if tp+fp else None,
+            'recall':tp/(tp+fn) if tp+fn else None,
+            'f1':2*tp/(2*tp+fp+fn) if tp+fn else None,
+            'support':tp+fn,'tp':tp,'fp':fp,'fn':fn,
+            'confusion_matrix':[[tn,fp],[fn,tp]]}
     return result
 
 def validate_splits(rows):

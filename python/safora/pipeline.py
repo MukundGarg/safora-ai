@@ -3,6 +3,7 @@ from collections import deque
 import numpy as np
 from safora.audio.stream import WindowStream,TemporalDetector,waveform
 from safora.asr.offline import EnergyVAD
+from safora.classifier.text import Turn
 class Pipeline:
     """Legacy asyncio adapter with independent acoustic/speech locks and bounded queues.
     Caller must feed normalized 16 kHz blocks no longer than one second from its
@@ -61,7 +62,7 @@ class Pipeline:
                     self.context=deque(((t,text) for t,text in self.context if self.time-t<=30),maxlen=4)
                     history=[text for _,text in self.context]
                     risk=await asyncio.to_thread(self.classifier.classify,transcript.text,history,transcript.uncertain)
-                    self.context.append((self.time,transcript.text))
+                    self.context.append((self.time,Turn(transcript.text,transcript.uncertain)))
                 event=self.engine.update(max(self.engine.clock,self.time),risk=risk)
                 if event:self.on_event(event)
             except Exception as exc:self.on_status('conversation_unavailable:'+type(exc).__name__)
