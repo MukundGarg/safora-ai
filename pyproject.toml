@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "safora-ai"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3", "scipy>=1.11,<2"]
+[project.optional-dependencies]
+device = ["adb-shell==0.4.4"]
+yamnet = ["ai-edge-litert>=1.2,<3"]
+vosk = ["vosk>=0.3.45,<0.4"]
+asr = ["faster-whisper>=1.1,<2"]
+training = ["torch>=2.2,<3", "transformers>=4.45,<5", "scikit-learn>=1.4,<2", "onnx>=1.16", "onnxruntime>=1.19"]
+[tool.setuptools.packages.find]
+where = ["python"]

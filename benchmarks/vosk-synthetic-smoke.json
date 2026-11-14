@@ -1,0 +1,30 @@
+{
+  "workload": "authored eSpeak NG synthetic integration fixtures; not labeled safety evaluation",
+  "host_only_not_android": true,
+  "model": "vosk-model-small-en-us-0.15",
+  "load_seconds": 1.4005900590000238,
+  "fixtures": [
+    {
+      "fixture": "refusal",
+      "transcript_of_authored_synthetic_audio": "they said no stop touching me",
+      "asr_uncertain": false,
+      "elapsed_seconds": 2.017505008000171,
+      "risk_labels": [
+        "distress_expression",
+        "unwanted_sexual_advance"
+      ],
+      "level": 1
+    },
+    {
+      "fixture": "coffee",
+      "transcript_of_authored_synthetic_audio": "they go somewhere for coffee",
+      "asr_uncertain": false,
+      "elapsed_seconds": 2.0236879310000404,
+      "risk_labels": [
+        "neutral_or_uncertain"
+      ],
+      "level": 0
+    }
+  ],
+  "peak_process_rss_kib": 201040
+}

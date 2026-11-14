@@ -1,0 +1,13 @@
+{
+  "model": "Systran/faster-whisper-tiny",
+  "revision": "d90ca5fe260221311c53c58e660288d3deb8d356",
+  "runtime": "faster-whisper1.2.1 / CTranslate2 4.9.0 CPU int8 threads2",
+  "model_bytes": 78203619,
+  "input": "8 seconds synthetic silence; not speech quality evaluation",
+  "load_seconds": 1.297320687000024,
+  "transcribe_seconds": 0.921275541,
+  "output_text": "",
+  "uncertain": true,
+  "peak_process_rss_kib": 251344,
+  "host_only_not_android": true
+}

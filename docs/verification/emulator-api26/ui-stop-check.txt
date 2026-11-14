@@ -1,0 +1,4 @@
+Monitoring stopped
+Mode: LITE (ASR requires local model)
+No incident
+No metrics yet

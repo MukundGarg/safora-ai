@@ -1,0 +1,34 @@
+test_all_pinned_models_are_bundled (test_android_packaging.AndroidPackagingTests.test_all_pinned_models_are_bundled) ... ok
+test_native_runtime_abi_consistency (test_android_packaging.AndroidPackagingTests.test_native_runtime_abi_consistency) ... ok
+test_no_recordings_or_synthetic_fixture_in_main_assets (test_android_packaging.AndroidPackagingTests.test_no_recordings_or_synthetic_fixture_in_main_assets) ... ok
+test_risk_classifier_is_explicitly_untrained (test_android_packaging.AndroidPackagingTests.test_risk_classifier_is_explicitly_untrained) ... ok
+test_silence_is_uncertain (test_model_integration.RealWhisperTests.test_silence_is_uncertain) ... ok
+test_real_model_silence_stream (test_model_integration.RealYamnetTests.test_real_model_silence_stream) ... INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+ok
+test_bounded_capture (test_pipeline.PipelineTests.test_bounded_capture) ... ok
+test_speech_runs_without_acoustic_alarm (test_pipeline.PipelineTests.test_speech_runs_without_acoustic_alarm) ... ok
+test_chunk_invariant_windows_and_clock (test_system.AudioTests.test_chunk_invariant_windows_and_clock) ... ok
+test_confirmation_and_cooldown (test_system.AudioTests.test_confirmation_and_cooldown) ... ok
+test_invalid_waveform (test_system.AudioTests.test_invalid_waveform) ... ok
+test_model_contract_with_fake_runtime (test_system.AudioTests.test_model_contract_with_fake_runtime) ... ok
+test_peak_alone_does_not_confirm (test_system.AudioTests.test_peak_alone_does_not_confirm) ... ok
+test_resample_pcm_and_stereo (test_system.AudioTests.test_resample_pcm_and_stereo) ... ok
+test_supplied_negative_maxima (test_system.AudioTests.test_supplied_negative_maxima) ... ok
+test_calibration_rejects_test_data (test_system.EvaluationTests.test_calibration_rejects_test_data) ... ok
+test_event_matching_duplicates_and_delay (test_system.EvaluationTests.test_event_matching_duplicates_and_delay) ... ok
+test_noise_reproducibility (test_system.EvaluationTests.test_noise_reproducibility) ... ok
+test_source_leakage (test_system.EvaluationTests.test_source_leakage) ... ok
+test_wer_cer (test_system.EvaluationTests.test_wer_cer) ... ok
+test_context_and_hindi (test_system.SafetyTests.test_context_and_hindi) ... ok
+test_higher_priority_bypasses_lower_incident_cooldown (test_system.SafetyTests.test_higher_priority_bypasses_lower_incident_cooldown) ... ok
+test_missing_asr_asset_fails_offline (test_system.SafetyTests.test_missing_asr_asset_fails_offline) ... ok
+test_ordinary_ambiguity_is_not_emergency (test_system.SafetyTests.test_ordinary_ambiguity_is_not_emergency) ... ok
+test_quiet_speech_not_gated_on_yamnet (test_system.SafetyTests.test_quiet_speech_not_gated_on_yamnet) ... ok
+test_resource_hysteresis (test_system.SafetyTests.test_resource_hysteresis) ... ok
+test_uncertainty_and_manual (test_system.SafetyTests.test_uncertainty_and_manual) ... ok
+test_validated_risk_and_duplicate (test_system.SafetyTests.test_validated_risk_and_duplicate) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 4.009s
+
+OK

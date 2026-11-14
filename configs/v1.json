@@ -1,0 +1,1 @@
+{"version":1,"sample_rate":16000,"window":15600,"hop":8000,"scream_threshold":0.30,"confirmation_hits":2,"confirmation_windows":3,"cooldown_seconds":10,"asr_chunk_seconds":8,"asr_queue_capacity":2,"threshold_status":"experimental; calibrate on independent validation data"}

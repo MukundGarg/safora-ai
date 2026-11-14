@@ -1,0 +1,7 @@
+{
+  "instrumentation_passed": true,
+  "expected_tests": 4,
+  "elapsed_seconds": 680.9948542118073,
+  "physical_device": false,
+  "workload": "synthetic fixtures, native assets, manual notification, virtual/live AudioRecord capture; not accuracy evaluation"
+}

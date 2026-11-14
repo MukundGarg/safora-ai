@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "yamnet": {
+    "asset": "yamnet.tflite",
+    "sha256": "10c95ea3eb9a7bb4cb8bddf6feb023250381008177ac162ce169694d05c317de",
+    "bytes": 4126810,
+    "license": "Apache-2.0; see upstream model page",
+    "source": "https://www.kaggle.com/models/google/yamnet/tfLite/classification-tflite/1"
+  },
+  "vosk": {
+    "en": {
+      "asset": "vosk-en.zip",
+      "root": "vosk-model-small-en-us-0.15",
+      "language": "English",
+      "url": "https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip",
+      "sha256": "30f26242c4eb449f948e42cb302dd7a686cb29a3423a8367f99ff41780942498",
+      "bytes": 41205931,
+      "license": "Apache-2.0",
+      "license_source": "https://alphacephei.com/vosk/models"
+    },
+    "hi": {
+      "asset": "vosk-hi.zip",
+      "root": "vosk-model-small-hi-0.22",
+      "language": "Hindi",
+      "url": "https://alphacephei.com/vosk/models/vosk-model-small-hi-0.22.zip",
+      "sha256": "7c50a10866889f0ac21d912c20537a055a597ed09fc1d3e5bcd798f9f0017e48",
+      "bytes": 44458845,
+      "license": "Apache-2.0",
+      "license_source": "https://alphacephei.com/vosk/models"
+    }
+  },
+  "risk_classifier": {
+    "type": "UNVALIDATED_HEURISTIC",
+    "trained_weights": false,
+    "external_escalation": false
+  }
+}

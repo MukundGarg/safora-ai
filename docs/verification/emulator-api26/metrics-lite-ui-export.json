@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "yamnet_runs": 31,
+  "yamnet_wall_mean_ms": 1032.208214354839,
+  "yamnet_wall_max_ms": 2465.722214,
+  "yamnet_worker_cpu_mean_ms": 564.4166001935484,
+  "asr_runs": 0,
+  "asr_wall_mean_ms": 0,
+  "asr_wall_max_ms": 0,
+  "asr_worker_cpu_mean_ms": 0,
+  "app_dropped_samples": 200000,
+  "app_dropped_blocks": 25,
+  "skipped_analysis_windows_estimate": 37,
+  "queue_high_water": 2,
+  "current_pss_kb": 45402,
+  "peak_sampled_pss_kb": 45598,
+  "process_peak_rss_kb": 121216
+}

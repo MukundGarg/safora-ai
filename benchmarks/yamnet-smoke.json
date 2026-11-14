@@ -1,0 +1,10 @@
+{
+  "input": "synthetic silence; no accuracy evaluation",
+  "model_bytes": 4126810,
+  "runtime": "ai-edge-litert 2.3.0 CPU threads2 XNNPACK",
+  "iterations": 100,
+  "p50_ms": 1.505355999938729,
+  "p95_ms": 2.055303000031472,
+  "peak_process_rss_kib": 103684,
+  "host_only_not_android": true
+}
