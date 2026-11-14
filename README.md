@@ -106,3 +106,11 @@ thread-safe drop-newest ingestion and metadata-derived YAMNet framing, separate
 from the legacy ASR/fusion pipeline. See [scream-detector-report](docs/scream-detector-report.md)
 for fixed-config evaluation, provisional thresholds, reused-dataset restrictions,
 monitoring-only outputs and precise test scope. Android integration remains separate.
+
+## Task 2 offline ASR
+
+The bounded English/Hindi Vosk controller, local model preparation and WER/CER
+manifest evaluator are described in [asr-task2-report](docs/asr-task2-report.md).
+See [Android ASR contract](docs/asr-android-contract.md) for the core handoff and
+remaining app integration. Host-native smoke tests do not establish phone behavior
+or speech-recognition accuracy.
